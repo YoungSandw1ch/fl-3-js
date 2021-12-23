@@ -96,3 +96,106 @@ if(totalSpent <= 100) {
 }
 
 console.log(`Оформляем заказ на сумму ${payment} со скидкой ${discount}%`);
+
+
+
+
+// let cost;
+// const subscription = "premium";
+
+// switch (subscription) {
+//   case "free":
+//     cost = 0;
+//     break;
+
+//   case "pro":
+//     cost = 100;
+//     break;
+
+//   case "premium":
+//     cost = 500;
+//     break;
+
+//   default:
+//     console.log("Invalid subscription type");
+// }
+
+// console.log(cost);
+
+
+
+
+
+
+// const target = 3;
+// let sum = 0;
+
+// for (let i = 0; i <= target; i += 1) {
+//   sum += i;
+// }
+
+// console.log(sum);
+
+
+
+
+// const max = 10;
+// for (let i = 0; i < max; i += 1) {
+//   console.log(`${max} % ${i} = `, max % i);
+// }
+
+
+
+
+// for (let i = 0; i <= 5; i += 1) {
+//   console.log(i);
+
+//   if (i === 3) {
+//     console.log("Нашли число 3, прерываем выполнение цикла");
+//     break;
+//   }
+// }
+
+// console.log("Лог после цикла");
+
+
+
+// let num = 1;
+
+// for (let i = 0; i < 100; i += 5) {
+//   num += i;
+//   console.log(i);
+//   console.log("value: ", num);
+// }
+
+// console.log("end");
+
+
+
+
+// задача количество работников со случайной зарплатой от 500 до 5000
+// узнать их сумарную зарплату
+
+// const employers = 10;
+// let totalSalary;
+// let salary = (Math.random() * (5000 - 500) + 1).toFixed(0);
+
+// totalSalary = employers * salary;
+// console.log(totalSalary);
+
+
+
+// решение через цыкл
+
+// const minSalary = 500;
+// const maxSalary = 5000;
+// const employers = 5;
+// let totalSalary = 0;
+// let salary ;
+
+// for (let i = 1; i <= employers; i += 1) {
+//   salary = Math.round(Math.random() * (maxSalary - minSalary) + minSalary);
+//   // console.log(`Зарплата сотрудника ${i} : `, salary);
+//   // console.log(`Сумарная зарплата: `, totalSalary += salary)
+// }
+// console.log(`Сумарная зарплата: `, totalSalary += salary)
