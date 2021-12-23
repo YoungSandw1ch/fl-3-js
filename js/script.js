@@ -1,3 +1,5 @@
+"use strict"
+
 let eyeseColor;
 
 let user;
@@ -28,3 +30,16 @@ let newUsers = usersCounter++;
 console.log(newUsers);
 
 console.log(!false && 11 || 18 && !'');
+
+
+const username = "Mango";
+console.log("Username is ", username);
+
+
+const message = "JavaScript is awesome!";
+alert(message);
+
+// Просим клиента подтвердить бронь на отель
+// и сохраняем в переменную результат работы confirm
+const isComing = confirm("Please confirm hotel reservation");
+console.log(isComing);
