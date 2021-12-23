@@ -34,7 +34,6 @@
 
 // let balance = 10000;
 // const payment = 2000;
-
 // 'Все хорошо, снимаем деньги... Спасибо за покупку!'
 
 // let balance = 10000;
@@ -44,7 +43,7 @@
 // console.log(message);
 
 // if(payment <= balance) {
-//   balance = balance - payment;
+//   balance -= payment;
 //   console.log("Все хорошо, снимаем деньги... Спасибо за покупку!");
 //   console.log(`На счету осталось ${balance} кредитов`);
 // } else {
@@ -206,14 +205,20 @@ console.log(`Оформляем заказ на сумму ${payment} со ск�
 
 // задача сумма всех четных чисел в промежутке
 
-const min = 9;
-const max = 19;
-let sum = 0;
+// const min = 9;
+// const max = 21;
+// let sum = 0;
 
-for (let i = min; i <= max; i += 1) {
-  if (i % 2 === 0) {
-    sum += i;
-  }
-}
+// for (let i = min; i <= max; i += 1) {
+//   if (i % 2 !== 0) {
+//     continue;
+//   }
+//   sum += i;
+// }
 
-console.log(sum);
+// console.log(sum);
+
+
+
+
+
