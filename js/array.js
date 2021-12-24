@@ -70,3 +70,38 @@
 // const name = [1, 2, 1, 2, 4, 6, 8, 9, 2]
 // console.log(name.indexOf(10));
 // console.log(name.slice(3, 0));
+
+
+
+
+
+// function add(a, b, c) {
+//   let result = a + b * c;
+//   console.log(`Addition result equals ${result}`);
+// }
+
+// add(15, 27, 10);
+// add(10, 20, 30);
+// add(5, 10, 15);
+// add(500, 10, 117);
+
+
+
+
+const numbers = [51, 32, 44, 5, 4, 11, 999];
+
+//создать пемеренную
+let minNumber = numbers[0];;
+//создать цикл перебора массива
+for (const number of numbers) {
+  // console.log(number);
+  // console.log(minNumber);
+  if (number < minNumber) {
+    minNumber = number;
+  }
+}
+
+console.log(`Минимальный номер: ${minNumber}`);
+//стравнить переменную с каждым элементом масива если меньше присвоить
+
+//вывести меньшее
