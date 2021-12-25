@@ -91,10 +91,11 @@
 const numbers = [51, 32, 44, 5, 4, 11, 999];
 
 //создать пемеренную
-let minNumber = numbers[0];;
+let minNumber;
 //создать цикл перебора массива
 for (const number of numbers) {
   // console.log(number);
+  minNumber = numbers[0];
   // console.log(minNumber);
   if (number < minNumber) {
     minNumber = number;
