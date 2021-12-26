@@ -88,21 +88,38 @@
 
 
 
-const numbers = [51, 32, 44, 5, 4, 11, 999];
+// const numbers = [51, 32, 44, 5, 4, 11, 999];
 
-//создать пемеренную
-let minNumber;
-//создать цикл перебора массива
-for (const number of numbers) {
-  // console.log(number);
-  minNumber = numbers[0];
-  // console.log(minNumber);
-  if (number < minNumber) {
-    minNumber = number;
-  }
-}
+// //создать пемеренную
+// let minNumber;
+// //создать цикл перебора массива
+// for (const number of numbers) {
+//   // console.log(number);
+//   minNumber = numbers[0];
+//   // console.log(minNumber);
+//   if (number < minNumber) {
+//     minNumber = number;
+//   }
+// }
 
-console.log(`Минимальный номер: ${minNumber}`);
+// console.log(`Минимальный номер: ${minNumber}`);
 //стравнить переменную с каждым элементом масива если меньше присвоить
 
 //вывести меньшее
+
+
+
+
+
+const numbers = [1, 51, 32, 44, 5, 4, 11, 999, 1, 9, 1203, 6, 99, 3000, 90, 13];
+
+//создать пемеренную
+let maxNumber = numbers[0];
+//создать цикл перебора массива
+for (const number of numbers) {
+  if (number > maxNumber) {
+    maxNumber = number;
+  }
+}
+
+console.log(`Мaксимальный номер: ${maxNumber}`);
