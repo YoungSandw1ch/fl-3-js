@@ -147,3 +147,27 @@
 //     word !== word.toLowerCase() ? (letter = word.toLowerCase()) : (letter = word.toUpperCase());
 // }
 // console.log(stringNew);
+
+//============================================================================================================
+// const title = 'Top 10 benefits of React framework';
+// const lowerCaseTitle = title.toLowerCase().split(' ').join('-');
+// // console.log(lowerCaseTitle);
+// // lowerCaseTitle = lowerCaseTitle.split(' ');
+// // console.log(lowerCaseTitle);
+// // lowerCaseTitle = lowerCaseTitle.join('-');
+
+// console.log(lowerCaseTitle);
+
+//============================================================================================================
+
+// const array1 = [5, 10, 15, 20];
+// const array2 = [10, 20, 30];
+// let total = 0;
+// const totalArray = array1.concat(array2);
+// console.log(totalArray);
+// for (const number of totalArray) {
+//   total += number;
+// }
+// console.log(total);
+
+//============================================================================================================
