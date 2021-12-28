@@ -170,4 +170,75 @@
 // }
 // console.log(total);
 
-//============================================================================================================
+//======================================================================
+
+// ======================функции начало=================================
+
+// const add = function (a, b) {
+//   return a + b;
+// };
+// const total = add(44, 56);
+// console.log(total);
+
+// function add(a, b) {
+//   return a + b;
+// }
+// console.log(add(11, 22));
+
+// const add = (a, b) => {
+//   return a + b;
+// };
+// console.log(add(1, 22));
+
+//====================================================================
+
+// const calculateTotalSum = function (items) {
+//   let total = 0;
+
+//   for (const item of items) {
+//     total += item;
+//   }
+
+//   return total;
+// };
+
+// const result = calculateTotalSum([1, 5, 6, 7, 8, 1000]);
+// console.log(result);
+
+//====================================================================
+
+// const findLogin = function (allLogins, login) {
+//   const message = allLogins.includes(login)
+//     ? `Пользователь ${login} найден`
+//     : `Пользователь ${login} не найден`;
+
+//   return message;
+// };
+
+// const findLogin = function (allLogins, login) {
+//   return allLogins.includes(login)
+//     ? `Пользователь ${login} найден`
+//     : `Пользователь ${login} не найден`;
+// };
+
+// const logins = ['asad', 'dwqd', 'dds', 'wtwet', 'gg4g4', 'f', 'ff3'];
+
+// console.log(findLogin(logins, 'f'));
+
+//====================================================================
+
+const findSmollestNumber = function (numbers) {
+  let minNumber = numbers[0];
+
+  for (const number of numbers) {
+    if (number < minNumber) {
+      minNumber = number;
+    }
+  }
+
+  return minNumber;
+};
+
+console.log(
+  findSmollestNumber([34, 434, 25, 5, 6, 252, 11, 255, 366436, 235, 66]),
+);
