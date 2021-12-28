@@ -289,3 +289,11 @@
 // console.log(changeRegisterCase('AAAbbbCCCdddd'));
 
 //====================================================================
+
+// const slugify = function (string) {
+//   return string.toLowerCase().split(' ').join('-');
+// };
+
+// console.log(slugify('Hi my Name is ChaturBatorS'));
+
+//====================================================================
