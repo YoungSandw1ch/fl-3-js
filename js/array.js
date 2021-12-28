@@ -227,18 +227,65 @@
 
 //====================================================================
 
-const findSmollestNumber = function (numbers) {
-  let minNumber = numbers[0];
+// const findSmollestNumber = function (numbers) {
+//   let minNumber = numbers[0];
 
-  for (const number of numbers) {
-    if (number < minNumber) {
-      minNumber = number;
-    }
-  }
+//   for (const number of numbers) {
+//     if (number < minNumber) {
+//       minNumber = number;
+//     }
+//   }
 
-  return minNumber;
-};
+//   return minNumber;
+// };
 
-console.log(
-  findSmollestNumber([34, 434, 25, 5, 6, 252, 11, 255, 366436, 235, 66]),
-);
+// console.log(
+//   findSmollestNumber([34, 434, 25, 5, 6, 252, 11, 255, 366436, 235, 66]),
+// );
+
+//====================================================================
+
+// const changeRegisterCase = function (string) {
+//   let invertedRegisterCase = '';
+//   let invertedLetter = '';
+
+//   for (const letter of string) {
+//     // if (letter !== letter.toLowerCase()) {
+//     //   invertedLetter = letter.toLowerCase();
+//     // } else {
+//     //   invertedLetter = letter.toUpperCase();
+//     // }
+//     // invertedRegisterCase += invertedLetter;
+
+//     invertedRegisterCase +=
+//       letter !== letter.toLowerCase()
+//         ? (invertedLetter = letter.toLowerCase())
+//         : (invertedLetter = letter.toUpperCase());
+//   }
+
+//   return invertedRegisterCase;
+// };
+
+// console.log(changeRegisterCase('wdqwSddWdRfF'));
+// console.log(changeRegisterCase('EfHjUkkkIIIkkk'));
+
+// ==================вариант-Репеты ===========================
+
+// const changeRegisterCase = function (string) {
+//   const letters = string.split('');
+//   let invertedString = '';
+
+//   for (const letter of letters) {
+//     invertedString +=
+//       letter === letter.toLowerCase()
+//         ? letter.toUpperCase()
+//         : letter.toLowerCase();
+//   }
+
+//   return invertedString;
+// };
+
+// console.log(changeRegisterCase('FFJJJhHGGyjUIKhGFgYHjKki'));
+// console.log(changeRegisterCase('AAAbbbCCCdddd'));
+
+//====================================================================
