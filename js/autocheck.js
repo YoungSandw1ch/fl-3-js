@@ -4,18 +4,12 @@
 // const message = `You picked ${productName}, price per item is ${pricePerItem} credits`;
 // console.log(message);
 
-
-
-
 // const pricePerDroid = 800;
 // const orderedQuantity = 6;
 // const deliveryFee = 50;
 // const totalPrice = pricePerDroid * orderedQuantity + deliveryFee;
 // const message = `You ordered droids worth ${totalPrice} credits. Delivery (${deliveryFee} credits) is included in total price.`
 // console.log(message);
-
-
-
 
 /* Напиши скрипт обработки покупки в магазине.
 
@@ -37,7 +31,7 @@
 // 'Все хорошо, снимаем деньги... Спасибо за покупку!'
 
 // let balance = 10000;
-// const payment = 2000; 
+// const payment = 2000;
 
 // const message = `Общая стоимость заказа ${payment} кредитов. Проверяем кол-во доступных средств на счету`
 // console.log(message);
@@ -51,12 +45,6 @@
 // }
 
 // console.log("Операция завершена")
-
-
-
-
-
-
 
 /*
 Напиши скрит подсчёта суммы покупки со скидкой в зависимости от потраченной суммы за всё время (партнёрская программа).
@@ -83,7 +71,6 @@
 // 'Золотой партнер, скидка 10%'
 // 'У вас еще нет партнерской скидки'
 
-
 // if(totalSpent < 100) {
 //   discount = 0;
 //   console.log('У вас еще нет партнерской скидки');
@@ -99,9 +86,6 @@
 // }
 
 // console.log(`Оформляем заказ на сумму ${payment -= (payment * discount)} со скидкой ${discount * 100}%`);
-
-
-
 
 // let cost;
 // const subscription = "premium";
@@ -125,11 +109,6 @@
 
 // console.log(cost);
 
-
-
-
-
-
 // const target = 3;
 // let sum = 0;
 
@@ -139,16 +118,10 @@
 
 // console.log(sum);
 
-
-
-
 // const max = 10;
 // for (let i = 0; i < max; i += 1) {
 //   console.log(`${max} % ${i} = `, max % i);
 // }
-
-
-
 
 // for (let i = 0; i <= 5; i += 1) {
 //   console.log(i);
@@ -161,8 +134,6 @@
 
 // console.log("Лог после цикла");
 
-
-
 // let num = 1;
 
 // for (let i = 0; i < 100; i += 5) {
@@ -173,9 +144,6 @@
 
 // console.log("end");
 
-
-
-
 // задача количество работников со случайной зарплатой от 500 до 5000
 // узнать их сумарную зарплату
 
@@ -185,8 +153,6 @@
 
 // totalSalary = employers * salary;
 // console.log(totalSalary);
-
-
 
 // решение через цыкл
 
@@ -203,10 +169,6 @@
 // }
 // console.log(`Сумарная зарплата: `, totalSalary += salary)
 
-
-
-
-
 // задача сумма всех четных чисел в промежутке
 
 // const min = 9;
@@ -222,7 +184,20 @@
 
 // console.log(sum);
 
+//===================================================
 
+// function isNumberInRange(start, end, number) {
+//   const isInRange = number >= start && number <= end; // Change this line
 
+//   return isInRange;
+// }
 
+//===================================================
 
+function checkIfCanAccessContent(subType) {
+  const canAccessContent = subType == 'pro' || subType == 'vip'; // Change this line
+
+  return canAccessContent;
+}
+
+console.log(checkIfCanAccessContent('pro'));

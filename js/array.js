@@ -297,3 +297,44 @@
 // console.log(slugify('Hi my Name is ChaturBatorS'));
 
 //====================================================================
+
+// function makeTransaction(pricePerDroid, orderedQuantity, customerCredits) {
+//   let message;
+//   // Change code below this line
+//   let totalPrice = pricePerDroid * orderedQuantity;
+//   message =
+//     totalPrice > customerCredits
+//       ? 'Insufficient funds!'
+//       : `You ordered ${orderedQuantity} droids, you have ${
+//           customerCredits - totalPrice
+//         } credits left`;
+//   // Change code above this line
+//   return message;
+// }
+
+// console.log(makeTransaction(3000, 5, 23000));
+// console.log(makeTransaction(1000, 3, 15000));
+// console.log(makeTransaction(5000, 10, 8000));
+// console.log(makeTransaction(2000, 8, 10000));
+
+//====================================================================
+
+// function checkPassword(password) {
+//   const ADMIN_PASSWORD = 'jqueryismyjam';
+//   let message;
+
+//   if (password == null) {
+//     // Change this line
+//     message = 'Canceled by user!';
+//   } else if (password === ADMIN_PASSWORD) {
+//     // Change this line
+//     message = 'Welcome!';
+//   } else {
+//     message = 'Access denied, wrong password!';
+//   }
+
+//   return message;
+// }
+// console.log(checkPassword('jqueryismyjam'));
+
+//====================================================================
