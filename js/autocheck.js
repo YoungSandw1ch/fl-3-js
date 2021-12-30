@@ -194,10 +194,169 @@
 
 //===================================================
 
-function checkIfCanAccessContent(subType) {
-  const canAccessContent = subType == 'pro' || subType == 'vip'; // Change this line
+// function checkIfCanAccessContent(subType) {
+//   const canAccessContent = subType == 'pro' || subType == 'vip'; // Change this line
 
-  return canAccessContent;
-}
+//   return canAccessContent;
+// }
 
-console.log(checkIfCanAccessContent('pro'));
+// console.log(checkIfCanAccessContent('pro'));
+
+//===================================================
+
+// function isNumberNotInRange(start, end, number) {
+//   const isInRange = number >= start && number <= end;
+//   const isNotInRange = !isInRange; // Change this line
+
+//   return isNotInRange;
+// }
+
+//===================================================
+
+// function getDiscount(totalSpent) {
+//   const BASE_DISCOUNT = 0;
+//   const BRONZE_DISCOUNT = 0.02;
+//   const SILVER_DISCOUNT = 0.05;
+//   const GOLD_DISCOUNT = 0.1;
+//   let discount;
+
+//   if (totalSpent >= 50000) {
+//     discount = GOLD_DISCOUNT;
+//   } else if (totalSpent >= 20000 && totalSpent < 50000) {
+//     discount = SILVER_DISCOUNT;
+//   } else if (totalSpent >= 5000 && totalSpent < 20000) {
+//     discount = BRONZE_DISCOUNT;
+//   } else {
+//     discount = BASE_DISCOUNT;
+//   }
+
+//   return discount;
+// }
+
+// console.log(getDiscount(137000));
+// console.log(getDiscount(900));
+
+//===================================================
+// function checkPassword(password) {
+//   const ADMIN_PASSWORD = 'jqueryismyjam';
+//   let message;
+
+//   switch (password) {
+//     case null:
+//       message = 'Canceled by user!';
+//       break;
+//     case ADMIN_PASSWORD:
+//       message = 'Welcome!';
+//       break;
+//     default:
+//       message = 'Access denied, wrong password!';
+//   }
+
+//   return message;
+// }
+
+// console.log(checkPassword(null));
+// console.log(checkPassword('polyhax'));
+// console.log(checkPassword('jqueryismyjam'));
+
+//===================================================
+
+// function getShippingCost(country) {
+//   let message;
+//   let price;
+
+//   switch (country) {
+//     case 'China':
+//       price = 100;
+//       message = `Shipping to ${country} will cost ${price} credits`;
+//       break;
+
+//     case 'Chile':
+//       price = 250;
+//       message = `Shipping to ${country} will cost ${price} credits`;
+//       break;
+
+//     case 'Australia':
+//       price = 170;
+//       message = `Shipping to ${country} will cost ${price} credits`;
+//       break;
+
+//     case 'Australia':
+//       price = 170;
+//       message = `Shipping to ${country} will cost ${price} credits`;
+//       break;
+
+//     case 'Jamaica':
+//       price = 120;
+//       message = `Shipping to ${country} will cost ${price} credits`;
+//       break;
+
+//     default:
+//       message = 'Sorry, there is no delivery to your country';
+//   }
+
+//   return message;
+// }
+
+// console.log(getShippingCost('Australia'));
+// console.log(getShippingCost('Germany'));
+// console.log(getShippingCost('China'));
+
+//===================================================
+
+// function getNameLength(name) {
+//   const message = `Name ${name} is ${name.length} characters long`;
+
+//   return message;
+// }
+
+// console.log(getNameLength('Supernatural'));
+
+//===================================================
+
+// const courseTopic = 'JavaScript essentials';
+
+// const courseTopicLength = courseTopic.length;
+// const firstElement = courseTopic[0];
+// const lastElement = courseTopic[courseTopic.length - 1];
+
+//===================================================
+
+// function getSubstring(string, length) {
+//   const substring = string.slice(0, length);
+
+//   return substring;
+// }
+// console.log(getSubstring('Qwertyuiop', 6));
+
+//===================================================
+
+// function formatMessage(message, maxLength) {
+//   let result;
+//   // Change code below this line
+//   result =
+//     message.length <= maxLength
+//       ? `${message}`
+//       : `${message.slice(0, maxLength)}...`;
+//   /// Change code above this line
+//   return result;
+// }
+
+// console.log(formatMessage('1234567890', 8));
+
+//===================================================
+//===================================================
+//===================================================
+//===================================================
+//===================================================
+//===================================================
+//===================================================
+//===================================================
+//===================================================
+//===================================================
+//===================================================
+//===================================================
+//===================================================
+//===================================================
+//===================================================
+//===================================================
