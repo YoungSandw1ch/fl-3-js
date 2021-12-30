@@ -345,6 +345,23 @@
 // console.log(formatMessage('1234567890', 8));
 
 //===================================================
+
+// function checkForSpam(message) {
+//   let result;
+
+//   result =
+//     message.toLowerCase().includes('spam') ||
+//     message.toLowerCase().includes('sale');
+
+//   return result;
+// }
+
+// console.log(checkForSpam('Latest technology news'));
+// console.log(checkForSpam('JavaScript weekly newsletter'));
+// console.log(checkForSpam('Get best sale offers now!'));
+// console.log(checkForSpam('Trust me, this is not a spam message'));
+// console.log(checkForSpam('Amazing SalE, only tonight!'));
+
 //===================================================
 //===================================================
 //===================================================
