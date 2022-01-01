@@ -446,21 +446,100 @@
 
 //===================================================
 
-function calculateTotal(number) {
-  let totalNumbers = 0;
-  for (let i = 0; i <= number; i += 1) {
-    totalNumbers += i;
-  }
-  return totalNumbers;
-}
-console.log(calculateTotal(1));
-console.log(calculateTotal(3));
-console.log(calculateTotal(24));
+// function calculateTotal(number) {
+//   let totalNumbers = 0;
+//   for (let i = 0; i <= number; i += 1) {
+//     totalNumbers += i;
+//   }
+//   return totalNumbers;
+// }
+// console.log(calculateTotal(1));
+// console.log(calculateTotal(3));
+// console.log(calculateTotal(24));
 //===================================================
+
+// function findLongestWord(string) {
+//   const array = string.split(' ');
+//   let longestWord = array[0];
+
+//   for (const word of array) {
+//     longestWord = longestWord.length > word.length ? longestWord : word;
+//   }
+
+//   return longestWord;
+// }
+// console.log(findLongestWord('The quick brown fox jumped over the lazy dog'));
+// console.log(findLongestWord('Google do a roll'));
+// console.log(findLongestWord('May the force be with you'));
+
 //===================================================
+
+// function filterArray(numbers, value) {
+//   const bigNumberArray = [];
+
+//   for (const number of numbers) {
+//     if (number > value) {
+//       bigNumberArray.push(number);
+//     }
+//   }
+
+//   return bigNumberArray;
+// }
+// console.log(filterArray([1, 2, 3, 4, 5], 3));
+// console.log(filterArray([12, 24, 8, 41, 76], 20));
+
 //===================================================
+
+// function getCommonElements(array1, array2) {
+//   const array3 = [];
+
+//   for (const item of array1) {
+//     if (array2.includes(item)) {
+//       array3.push(item);
+//     }
+//   }
+
+//   return array3;
+// }
+
+// console.log(getCommonElements([24, 12, 27, 3], [12, 8, 3, 36, 27]));
+// console.log(getCommonElements([10, 20, 30, 40], [4, 30, 17, 10, 40]));
+
 //===================================================
+
+// function getEvenNumbers(start, end) {
+//   const filteredArray = [];
+
+//   for (let i = start; i <= end; i += 1) {
+//     if (i % 2 === 0) {
+//       filteredArray.push(i);
+//     }
+//   }
+
+//   return filteredArray;
+// }
+// console.log(getEvenNumbers(6, 12));
+
 //===================================================
+
+// function includes(array, value) {
+//   for (const item of array) {
+//     if (item === value) {
+//       return true;
+//     }
+//   }
+
+//   return false;
+// }
+
+// console.log(includes([1, 2, 3, 4, 5], 3));
+// console.log(
+//   includes(['Earth', 'Mars', 'Venus', 'Jupiter', 'Saturn'], 'Uranus'),
+// );
+// console.log(
+//   includes(['Earth', 'Mars', 'Venus', 'Jupiter', 'Saturn'], 'Jupiter'),
+// );
+
 //===================================================
 //===================================================
 //===================================================
