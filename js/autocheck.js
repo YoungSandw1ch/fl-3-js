@@ -398,10 +398,64 @@
 // console.log(getExtremeElements(['Earth', 'Mars', 'Venus']));
 // console.log(getExtremeElements(['apple', 'peach', 'pear', 'banana']));
 //===================================================
+
+// function splitMessage(message, delimeter) {
+//   let words;
+//   // Change code below this line
+//   words = message.split(delimeter);
+//   // Change code above this line
+//   return words;
+// }
+// console.log(splitMessage('full stuck is unbeliveble', ' '));
+
 //===================================================
+
+// function calculateEngravingPrice(message, pricePerWord) {
+//   let totalPrice = message.split(' ').length * pricePerWord;
+//   return totalPrice;
+// }
+// console.log(calculateEngravingPrice('JavaScript is in my blood', 10));
+// console.log(calculateEngravingPrice('JavaScript is in my blood', 20));
+// console.log(calculateEngravingPrice('Web-development is creative work', 40));
+
 //===================================================
+
+// function slugify(title) {
+//   return title.toLowerCase().split(' ').join('-');
+// }
+// console.log(slugify('i love to train with friend'));
+
 //===================================================
+
+// function makeArray(firstArray, secondArray, maxLength) {
+//   if (firstArray.concat(secondArray).length > maxLength) {
+//     return firstArray.concat(secondArray).slice(0, maxLength);
+//   }
+//   return firstArray.concat(secondArray);
+// }
+//---------варианты---------------
+// function makeArray(firstArray, secondArray, maxLength) {
+//   let newArray = firstArray.concat(secondArray);
+//   return newArray.length > maxLength ? newArray.slice(0, maxLength) : newArray;
+// }
+
+// console.log(makeArray(['Mango', 'Poly'], ['Ajax', 'Chelsea'], 3));
+// console.log(makeArray(['Mango'], ['Ajax', 'Chelsea', 'Poly', 'Houston'], 3));
+// console.log(makeArray(['Earth', 'Jupiter'], ['Neptune', 'Uranus', 'Venus'], 0));
+// console.log(makeArray(['Earth', 'Jupiter'], ['Neptune', 'Uranus'], 4));
+
 //===================================================
+
+function calculateTotal(number) {
+  let totalNumbers = 0;
+  for (let i = 0; i <= number; i += 1) {
+    totalNumbers += i;
+  }
+  return totalNumbers;
+}
+console.log(calculateTotal(1));
+console.log(calculateTotal(3));
+console.log(calculateTotal(24));
 //===================================================
 //===================================================
 //===================================================
