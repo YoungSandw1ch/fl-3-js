@@ -363,6 +363,48 @@
 // console.log(checkForSpam('Amazing SalE, only tonight!'));
 
 //===================================================
+
+// function checkStorage(available, ordered) {
+
+//   if (ordered === 0) {
+//     return 'Your order is empty!';
+//   }
+
+//   if (ordered > available) {
+//     return 'Your order is too large, not enough goods in stock!';
+//   }
+
+//   return 'The order is accepted, our manager will contact you';
+// }
+
+//===================================================
+// const fruits = ['apple', 'plum', 'pear', 'orange'];
+// fruits[1] = 'peach';
+// fruits[3] = 'banana';
+
+// console.table(fruits);
+//===================================================
+
+// const fruits = ['apple', 'peach', 'pear', 'banana'];
+// const fruitsArrayLength = fruits.length;
+// console.log(fruitsArrayLength);
+
+//===================================================
+// function getExtremeElements(array) {
+//   array.splice(1, array.length - 2);
+//   return array;
+// }
+// console.log(getExtremeElements([1, 2, 3, 4, 5]));
+// console.log(getExtremeElements(['Earth', 'Mars', 'Venus']));
+// console.log(getExtremeElements(['apple', 'peach', 'pear', 'banana']));
+//===================================================
+//===================================================
+//===================================================
+//===================================================
+//===================================================
+//===================================================
+//===================================================
+//===================================================
 //===================================================
 //===================================================
 //===================================================
