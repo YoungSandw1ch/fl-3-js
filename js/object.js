@@ -262,25 +262,117 @@
 
 //=========================================================
 
-const apartment = {
-  descr: 'Spacious apartment in the city center',
-  rating: 4,
-  price: 2153,
-};
-const keys = [];
-const values = [];
+// const apartment = {
+//   descr: 'Spacious apartment in the city center',
+//   rating: 4,
+//   price: 2153,
+// };
+// const keys = [];
+// const values = [];
 
-for (const key in apartment) {
-  keys.push(key);
-  values.push(apartment[key]);
-}
+// for (const key in apartment) {
+//   keys.push(key);
+//   values.push(apartment[key]);
+// }
 
-console.log(keys);
-console.log(values);
+// console.log(keys);
+// console.log(values);
+
 //=========================================================
+
+// const keys = [];
+// const values = [];
+// const advert = {
+//   service: 'apt',
+//   name: 'leonid',
+// };
+// const apartment = Object.create(advert);
+// apartment.descr = 'Spacious apartment in the city center';
+// apartment.rating = 4;
+// apartment.price = 2153;
+
+// for (const key in apartment) {
+//   if (apartment.hasOwnProperty(key)) {
+//     keys.push(key);
+//     values.push(apartment[key]);
+//   }
+// }
+
+// console.log(keys);
+// console.log(values);
+// console.log(apartment.service);
+// console.log(apartment.name);
+
 //=========================================================
+
+// const apartment = {
+//   descr: 'Spacious apartment in the city center',
+//   rating: 4,
+//   price: 2153,
+// };
+// const values = [];
+// const keys = Object.keys(apartment);
+
+// for (const key of keys) {
+//   values.push(apartment[key]);
+// }
+
+// console.log(keys);
+// console.log(values);
+
 //=========================================================
-//=========================================================
+
+// const products = [
+//   { name: 'Radar', price: 1300, quantity: 4 },
+//   { name: 'Scanner', price: 2700, quantity: 3 },
+//   { name: 'Droid', price: 400, quantity: 7 },
+//   { name: 'Grip', price: 1200, quantity: 9 },
+// ];
+
+// function getProductPrice(productName) {
+//   for (const product of products) {
+//     if (product.name === productName) {
+//       return product.price;
+//     }
+//   }
+
+//   return null;
+// }
+
+// console.log(getProductPrice('Radar'));
+// console.log(getProductPrice('Scanner'));
+// console.log(getProductPrice('Scwner'));
+// console.log(getProductPrice('Droid'));
+// console.log(getProductPrice('Grip'));
+
+//==========НАЙТИ РЕШЕНИЕ ПРОЩЕ И БЫСТРЕЕ==================
+
+// const products = [
+//   { name: 'Radar', price: 1300, quantity: 4 },
+//   { name: 'Scanner', price: 2700, quantity: 3 },
+//   { name: 'Droid', price: 400, quantity: 7 },
+//   { name: 'Grip', price: 1200, quantity: 9 },
+// ];
+
+// function getAllPropValues(propName) {
+//   const values = [];
+
+//   for (const product of products) {
+//     const keys = Object.keys(product);
+
+//     if (keys.includes(propName)) {
+//       values.push(product[propName]);
+//     }
+//   }
+
+//   return values;
+// }
+
+// console.log(getAllPropValues('name'));
+// console.log(getAllPropValues('quantity'));
+// console.log(getAllPropValues('price'));
+// console.log(getAllPropValues('category'));
+
 //=========================================================
 //=========================================================
 //=========================================================
