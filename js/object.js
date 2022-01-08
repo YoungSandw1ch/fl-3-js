@@ -375,34 +375,65 @@
 
 //=========================================================
 
-const forecast = {
-  today: {
-    low: 28,
-    high: 32,
-    icon: 'https://www.flaticon.com/svg/static/icons/svg/861/861059.svg',
-  },
-  tomorrow: {
-    low: 27,
-    high: 31,
-  },
-};
-// Change code below this line
-const {
-  today: {
-    low: lowToday,
-    high: highToday,
-    icon: todayIcon = 'https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg',
-  },
-  tomorrow: {
-    low: lowTomorrow,
-    high: highTomorrow,
-    icon: tomorrowIcon = 'https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg',
-  },
-} = forecast;
+// const forecast = {
+//   today: {
+//     low: 28,
+//     high: 32,
+//     icon: 'https://www.flaticon.com/svg/static/icons/svg/861/861059.svg',
+//   },
+//   tomorrow: {
+//     low: 27,
+//     high: 31,
+//   },
+// };
+
+// const {
+//   today: {
+//     low: lowToday,
+//     high: highToday,
+//     icon: todayIcon = 'https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg',
+//   },
+//   tomorrow: {
+//     low: lowTomorrow,
+//     high: highTomorrow,
+//     icon: tomorrowIcon = 'https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg',
+//   },
+// } = forecast;
 
 //=========================================================
+
+// const scores = [89, 64, 42, 17, 93, 51, 26];
+// const bestScore = Math.max(...scores);
+// const worstScore = Math.min(...scores);
+
 //=========================================================
+
+// const firstGroupScores = [64, 42, 93];
+// const secondGroupScores = [89, 14, 51, 26];
+// const thirdGroupScores = [29, 47, 18, 97, 81];
+
+// const allScores = [
+//   ...firstGroupScores,
+//   ...secondGroupScores,
+//   ...thirdGroupScores,
+// ];
+// const bestScore = Math.max(...allScores);
+// const worstScore = Math.min(...allScores);
+
 //=========================================================
+
+function findMatches(array, ...args) {
+  const matches = [];
+
+  for (const arg of args) {
+    if (array.includes(arg)) {
+      matches.push(arg);
+    }
+  }
+
+  return matches;
+}
+
 //=========================================================
 //=========================================================
 //=========================================================
