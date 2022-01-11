@@ -47,38 +47,33 @@
 
 //====================================================
 
-const pizzaPalace = {
-  pizzas: ['Ultracheese', 'Smoked', 'Four meats'],
-  order(pizzaName, onSuccess, onError) {
-    return !this.pizzas.includes(pizzaName)
-      ? console.log(
-          onError(
-            `There is no pizza with a name ${pizzaName} in the assortment.`,
-          ),
-        )
-      : console.log(onSuccess(pizzaName));
-    //   if (this.pizzas.includes(pizzaName)) {
-    //     return console.log(onSuccess(pizzaName));
-    //   }
-    //   return console.log(onError(pizzaName));
-  },
+// const pizzaPalace = {
+//   pizzas: ['Ultracheese', 'Smoked', 'Four meats'],
+//   order(pizzaName, onSuccess, onError) {
+//     return !this.pizzas.includes(pizzaName)
+//       ? onError(`There is no pizza with a name ${pizzaName} in the assortment.`)
+//       : onSuccess(pizzaName);
+//     //   if (this.pizzas.includes(pizzaName)) {
+//     //     return console.log(onSuccess(pizzaName));
+//     //   }
+//     //   return console.log(onError(pizzaName));
+//   },
 
-  // const passed = this.pizzas.includes(pizzaName);
-  // return passed ? onSuccess(pizzaName) : onError(`There is no pizza with a name ${pizzaName} in the assortment.`)
-};
+//   // const passed = this.pizzas.includes(pizzaName);
+//   // return passed ? onSuccess(pizzaName) : onError(`There is no pizza with a name ${pizzaName} in the assortment.`)
+// };
 
-// Callback for onSuccess
-function makePizza(pizzaName) {
-  return `Your order is accepted. Cooking pizza ${pizzaName}.`;
-}
+// function makePizza(pizzaName) {
+//   return `Your order is accepted. Cooking pizza ${pizzaName}.`;
+// }
 
-// Callback for onError
-function onOrderError(error) {
-  return `Error! ${error}`;
-}
+// function onOrderError(error) {
+//   return `Error! ${error}`;
+// }
 
-// Method calls with callbacks
-pizzaPalace.order('Smoked', makePizza, onOrderError);
-pizzaPalace.order('Four meats', makePizza, onOrderError);
-pizzaPalace.order('Big Mike', makePizza, onOrderError);
-pizzaPalace.order('Vienna', makePizza, onOrderError);
+// console.log(pizzaPalace.order('Smoked', makePizza, onOrderError));
+// console.log(pizzaPalace.order('Four meats', makePizza, onOrderError));
+// console.log(pizzaPalace.order('Big Mike', makePizza, onOrderError));
+// pizzaPalace.order('Vienna', makePizza, onOrderError);
+
+//====================================================
