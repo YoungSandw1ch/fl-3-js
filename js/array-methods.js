@@ -8,38 +8,149 @@ const tweets = [
 
 //Отобрать все твиты, и посчитать сколько раз они повторялись
 
-// const allTags = tweets.reduce((acc, tweet) => {
-//   // console.log(tweet);
-//   // console.log(acc);
-//   return { ...acc, ...tweet.tags };
-// }, {});
+// const allTags = tweets.reduce((acc, { tags }) => {
+//   // console.log(`tweet: `, tweet);
+//   // console.log(`tweet tags: `, tags);
+//   // console.log(`acc: `, acc);
+//   acc.push(...tags);
+//   return acc;
+// }, []);
 
-// console.log(allTags);
+// console.log(`allTags: `, allTags);
+// console.table(`allTags: `, allTags);
+//========================================================
+// const allTags = function (object) {
+//   const newArray = [];
 
-const allTags = function (object) {
-  const newArray = [];
+//   for (const tweet of tweets) {
+//     newArray.push(...tweet.tags);
+//   }
 
-  for (const tweet of tweets) {
-    newArray.push(...tweet.tags);
-  }
+//   return newArray;
+// };
 
-  return newArray;
-};
+// const totalTags = allTags(tweets);
+// console.log(`totalTags: `, totalTags);
 
-const totalTags = allTags(tweets);
-console.log(totalTags);
+// const numbersOfTags = function (array) {
+//   const obj = {};
+//   for (const item of array) {
+//     if (!obj.hasOwnProperty(item)) {
+//       obj[item] = 1;
+//     } else {
+//       obj[item] += 1;
+//     }
+//   }
 
-const numbersOfTags = function (array) {
-  const obj = {};
-  for (const item of array) {
-    obj[item] = 0;
+//   return obj;
+// };
 
-    if (obj[item]) {
-      obj[item] += 1;
-    }
-  }
+// console.log(`tagCount: `, numbersOfTags(totalTags));
+//======================================================
 
-  return obj;
-};
+// const tags = tweets =>
+//   tweets.reduce((acc, tweet) => {
+//     acc.push(...[tweet.tags]);
 
-console.log(numbersOfTags(totalTags));
+//     return acc;
+//   }, []);
+
+// // console.log(`tags: `, tags(tweets));
+// const allTags = tags(tweets);
+// console.log(`allTags: `, allTags);
+
+//========================================================
+//========================================================
+//========================================================
+/*
+ * Считаем общее количество часов
+ */
+
+const players = [
+  { id: 'player-1', name: 'Mango', timePlayed: 310, online: false },
+  { id: 'player-2', name: 'Poly', timePlayed: 470, online: true },
+  { id: 'player-3', name: 'Kiwi', timePlayed: 230, online: true },
+  { id: 'player-4', name: 'Ajax', timePlayed: 150, online: false },
+  { id: 'player-5', name: 'Chelsey', timePlayed: 80, online: true },
+];
+
+//---количество времени общее наиграное
+const totalTime = players.reduce((acc, player) => acc + player.timePlayed, 0);
+console.log(totalTime);
+
+//---игроки наигравшие больше 250
+// const HARD_TIME = 250;
+// const hardCorePlayers = players.filter(player => player.timePlayed > HARD_TIME);
+// console.table(hardCorePlayers);
+
+//---имена всех пользователей
+// const playersName = players.map(player => player.name);
+// console.log(`playersName: `, playersName);
+
+//---найти пользователя
+// const playerToFind = 'player-4';
+// const findPlayer = players.find(player => playerToFind === player.id);
+// console.log(`findPlayer: `, findPlayer);
+
+//---пользователи онлайн
+// const onlinePlayers = players.filter(player => player.online);
+// console.log(`onlinePlayers: `, onlinePlayers);
+
+//---пользователи офлайн
+// const offlinePlayers = players.filter(player => !player.online);
+// console.log(`offlinePlayers: `, offlinePlayers);
+
+//---найти пользователя по имени
+// const findName = players.find(player => player.name === 'Kiwi');
+// console.log(`findName: `, findName);
+
+//---увеличим время игроков на 50
+console.table(players);
+const playersPlusTime = players.map(player => {
+  return { ...player, timePlayed: player.timePlayed + 50 };
+});
+console.table(playersPlusTime);
+//========================================================
+//========================================================
+//========================================================
+//========================================================
+//========================================================
+//========================================================
+//========================================================
+//========================================================
+//========================================================
+//========================================================
+//========================================================
+//========================================================
+//========================================================
+//========================================================
+//========================================================
+//========================================================
+//========================================================
+//========================================================
+//========================================================
+//========================================================
+//========================================================
+//========================================================
+//========================================================
+//========================================================
+//========================================================
+//========================================================
+//========================================================
+//========================================================
+//========================================================
+//========================================================
+//========================================================
+//========================================================
+//========================================================
+//========================================================
+//========================================================
+//========================================================
+//========================================================
+//========================================================
+//========================================================
+//========================================================
+//========================================================
+//========================================================
+//========================================================
+//========================================================
