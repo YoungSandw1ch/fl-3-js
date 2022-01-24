@@ -541,8 +541,66 @@
 // );
 
 //===================================================
+
+// const releaseDates = [2016, 1967, 2008, 1984, 1973, 2012, 1997, 20];
+// const authors = [
+//   'Tanith Lee',
+//   'Bernard Cornwell',
+//   'Robert Sheckley',
+//   'Fyodor Dostoevsky',
+//   'Howard Lovecraft',
+// ];
+
+// const ascendingReleaseDates = [...releaseDates].sort((a, b) => a - b);
+// console.log(ascendingReleaseDates);
+
+// const alphabeticalAuthors = [...authors].sort();
+// console.log(alphabeticalAuthors);
 //===================================================
+
+// const authorsInAlphabetOrder = [...authors].sort((a, b) => a.localeCompare(b));
+// console.log(authorsInAlphabetOrder);
+
+// const authorsInReversedOrder = [...authors].sort((a, b) => b.localeCompare(a));
+// console.log(authorsInReversedOrder);
 //===================================================
+
+const books = [
+  {
+    title: 'The Last Kingdom',
+    author: 'Bernard Cornwell',
+    rating: 8.38,
+  },
+  {
+    title: 'Beside Still Waters',
+    author: 'Robert Sheckley',
+    rating: 8.51,
+  },
+  {
+    title: 'The Dream of a Ridiculous Man',
+    author: 'Fyodor Dostoevsky',
+    rating: 7.75,
+  },
+  { title: 'Redder Than Blood', author: 'Tanith Lee', rating: 7.94 },
+  { title: 'Enemy of God', author: 'Bernard Cornwell', rating: 8.67 },
+];
+
+const sortedByAuthorName = [...books].sort((prev, next) =>
+  prev.author.localeCompare(next.author),
+);
+console.table(sortedByAuthorName);
+
+const sortedByReversedAuthorName = [...sortedByAuthorName].reverse();
+console.table(sortedByReversedAuthorName);
+
+const sortedByAscendingRating = [...books].sort((a, b) => a.rating - b.rating);
+console.table(sortedByAscendingRating);
+
+const sortedByDescentingRating = [...books].sort(
+  (prev, next) => next.rating - prev.rating,
+);
+console.table(sortedByDescentingRating);
+
 //===================================================
 //===================================================
 //===================================================
