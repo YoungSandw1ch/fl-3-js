@@ -103,6 +103,8 @@
 // updateCounter(10, counter.increment.bind(counter));
 // updateCounter(5, counter.decrement);
 
-const array = [1, 1, 1, 2, 3, 2, 4, 5, 5];
-const uniqueArray = [...new Set(array)];
-console.log(uniqueArray);
+// const array = [1, 1, 1, 2, 3, 2, 4, 5, 5];
+// const uniqueArray = [...new Set(array)];
+// console.log(uniqueArray);
+
+//=================================================
