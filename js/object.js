@@ -520,6 +520,11 @@
 // console.table(atTheOldToad.removePotion('Dragon breath'));
 
 //=========================================================
+// Change code below this line
+// const getTotalBalanceByGender = (users, gender) => [...users]
+// .filter(user => user.gender === gender)
+// .reduce((acc, user) => acc + user.balance, 0);
+// // Change code above this line
 //=========================================================
 //=========================================================
 //=========================================================
