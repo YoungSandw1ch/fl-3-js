@@ -108,3 +108,40 @@
 // console.log(uniqueArray);
 
 //=================================================
+const numbers = [2, 1, 3, 7, 10, 4, 5];
+console.log(numbers);
+
+for (let i = 0; i < numbers.length; i += 1) {
+  for (let j = i + 1; j < numbers.length; j += 1) {
+    const a = numbers[i];
+    const b = numbers[j];
+    const temp = a;
+
+    if (b < a) {
+      numbers[i] = numbers[j];
+      numbers[j] = temp;
+    }
+  }
+}
+console.log(numbers);
+
+const langs = ['python', 'javascript', 'c++', 'haskel', 'php', 'ruby'];
+// console.log(langs);
+// ['c++', 'haskel', 'javascript', 'python', 'php', 'ruby'];
+// ['c++', 'haskel', 'javascript', 'php', 'python', 'ruby']
+// ['c++', 'haskel', 'javascript', 'python', 'php', 'ruby']
+
+// for (let i = 0; i < langs.length; i += 1) {
+//   for (let j = i + 1; j < langs.length; j += 1) {
+//     const a = langs[i];
+//     const b = langs[j];
+//     const temp = a;
+
+//     // first letters
+//     if (b[0] < a[0]) {
+//       langs[i] = langs[j];
+//       langs[j] = temp;
+//     }
+//   }
+// }
+// console.log(langs);
