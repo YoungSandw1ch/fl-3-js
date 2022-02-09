@@ -108,24 +108,24 @@
 // console.log(uniqueArray);
 
 //=================================================
-const numbers = [2, 1, 3, 7, 10, 4, 5];
-console.log(numbers);
+// const numbers = [2, 1, 3, 7, 10, 4, 5];
+// console.log(numbers);
 
-for (let i = 0; i < numbers.length; i += 1) {
-  for (let j = i + 1; j < numbers.length; j += 1) {
-    const a = numbers[i];
-    const b = numbers[j];
-    const temp = a;
+// for (let i = 0; i < numbers.length; i += 1) {
+//   for (let j = i + 1; j < numbers.length; j += 1) {
+//     const a = numbers[i];
+//     const b = numbers[j];
+//     const temp = a;
 
-    if (b < a) {
-      numbers[i] = numbers[j];
-      numbers[j] = temp;
-    }
-  }
-}
-console.log(numbers);
+//     if (b < a) {
+//       numbers[i] = numbers[j];
+//       numbers[j] = temp;
+//     }
+//   }
+// }
+// console.log(numbers);
 
-const langs = ['python', 'javascript', 'c++', 'haskel', 'php', 'ruby'];
+// const langs = ['python', 'javascript', 'c++', 'haskel', 'php', 'ruby'];
 // console.log(langs);
 // ['c++', 'haskel', 'javascript', 'python', 'php', 'ruby'];
 // ['c++', 'haskel', 'javascript', 'php', 'python', 'ruby']
@@ -145,3 +145,11 @@ const langs = ['python', 'javascript', 'c++', 'haskel', 'php', 'ruby'];
 //   }
 // }
 // console.log(langs);
+
+const obj = {
+  1: 1,
+  2: 3,
+  4: 5,
+};
+Object.keys(obj);
+console.log(Object.keys(obj).length);
