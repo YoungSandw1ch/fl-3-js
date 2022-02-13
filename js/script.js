@@ -108,6 +108,7 @@
 // console.log(uniqueArray);
 
 //=================================================
+
 // const numbers = [2, 1, 3, 7, 10, 4, 5];
 // console.log(numbers);
 
@@ -146,6 +147,76 @@
 // }
 // console.log(langs);
 
+//=================================================
+
+// const getCommonElement = array => {
+//   const arrSameNum = [];
+
+//   for (let i = 0; i < array.length; i += 1) {
+//     const isDouble = array.indexOf(array[i]) !== i;
+//     const isInclude = !arrSameNum.includes(array[i]);
+
+//     if (isDouble && isInclude) {
+//       arrSameNum.push(array[i]);
+//     }
+//   }
+
+//   return arrSameNum;
+// };
+
+// const getCommonElement = array => {
+//   let arrSameNum = [];
+
+//   for (let i = 0; i < array.length; i += 1) {
+//     for (let j = i + 1; j < array.length; j += 1) {
+
+//     }
+//   }
+
+//   return arrSameNum;
+// };
+
+// console.log(getCommonElement([1, 1, 1, 1, 2, 2, 2, 3, 2, 1, 17, 17, 19]));
+
+//=================================================
+
+// const isFree = deep => {
+//   const up = 7;
+//   const down = 2;
+//   let distance = down;
+//   let count = 0;
+
+//   do {
+//     distance += up - down;
+//     count += 1;
+//   } while (distance < deep);
+
+//   return count;
+// };
+
+// const isFree = deep => {
+//   const up = 7;
+//   const down = 2;
+//   let distance = down;
+//   let count = 0;
+
+//   while (distance < deep) {
+//     distance += up - down;
+//     count += 1;
+//   }
+
+//   return count;
+// };
+
+// console.log(isFree(42));
+// console.log(isFree(17));
+// console.log(isFree(18));
+
+//=================================================
+//=================================================
+//=================================================
+//=================================================
+
 // const obj = {
 //   1: 1,
 //   2: 3,
@@ -173,6 +244,7 @@
 // console.log(filterArray([1, 2, 3, 4, 5], 4));
 // console.log(filterArray([1, 2, 3, 4, 5], 5));
 // console.log(filterArray([12, 24, 8, 41, 76], 38));
+
 //===========================================================
 
 // let number = 10;
