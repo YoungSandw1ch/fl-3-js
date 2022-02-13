@@ -108,7 +108,10 @@
 // console.log(uniqueArray);
 
 //=================================================
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1b79299742fbc1f46777bca1ca68373da12e541a
 // const numbers = [2, 1, 3, 7, 10, 4, 5];
 // console.log(numbers);
 
@@ -147,6 +150,7 @@
 // }
 // console.log(langs);
 
+<<<<<<< HEAD
 //=================================================
 
 // const getCommonElement = array => {
@@ -216,3 +220,33 @@
 //=================================================
 //=================================================
 //=================================================
+=======
+// const obj = {
+//   1: 1,
+//   2: 3,
+//   4: 5,
+// };
+// Object.keys(obj);
+// console.log(Object.keys(obj).length);
+
+//===========================================================
+// function filterArray(numbers, value) {
+//   // Change code below this line
+//   const filteredArray = [];
+
+//   for (const number of numbers) {
+//     if (number <= value) {
+//       continue;
+//     }
+//     filteredArray.push(number);
+//   }
+//   return filteredArray;
+//   // Change code above this line
+// }
+
+// console.log(filterArray([1, 2, 3, 4, 5], 3));
+// console.log(filterArray([1, 2, 3, 4, 5], 4));
+// console.log(filterArray([1, 2, 3, 4, 5], 5));
+// console.log(filterArray([12, 24, 8, 41, 76], 38));
+//===========================================================
+>>>>>>> 1b79299742fbc1f46777bca1ca68373da12e541a
