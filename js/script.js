@@ -108,24 +108,25 @@
 // console.log(uniqueArray);
 
 //=================================================
-const numbers = [2, 1, 3, 7, 10, 4, 5];
-console.log(numbers);
 
-for (let i = 0; i < numbers.length; i += 1) {
-  for (let j = i + 1; j < numbers.length; j += 1) {
-    const a = numbers[i];
-    const b = numbers[j];
-    const temp = a;
+// const numbers = [2, 1, 3, 7, 10, 4, 5];
+// console.log(numbers);
 
-    if (b < a) {
-      numbers[i] = numbers[j];
-      numbers[j] = temp;
-    }
-  }
-}
-console.log(numbers);
+// for (let i = 0; i < numbers.length; i += 1) {
+//   for (let j = i + 1; j < numbers.length; j += 1) {
+//     const a = numbers[i];
+//     const b = numbers[j];
+//     const temp = a;
 
-const langs = ['python', 'javascript', 'c++', 'haskel', 'php', 'ruby'];
+//     if (b < a) {
+//       numbers[i] = numbers[j];
+//       numbers[j] = temp;
+//     }
+//   }
+// }
+// console.log(numbers);
+
+// const langs = ['python', 'javascript', 'c++', 'haskel', 'php', 'ruby'];
 // console.log(langs);
 // ['c++', 'haskel', 'javascript', 'python', 'php', 'ruby'];
 // ['c++', 'haskel', 'javascript', 'php', 'python', 'ruby']
@@ -145,3 +146,73 @@ const langs = ['python', 'javascript', 'c++', 'haskel', 'php', 'ruby'];
 //   }
 // }
 // console.log(langs);
+
+//=================================================
+
+// const getCommonElement = array => {
+//   const arrSameNum = [];
+
+//   for (let i = 0; i < array.length; i += 1) {
+//     const isDouble = array.indexOf(array[i]) !== i;
+//     const isInclude = !arrSameNum.includes(array[i]);
+
+//     if (isDouble && isInclude) {
+//       arrSameNum.push(array[i]);
+//     }
+//   }
+
+//   return arrSameNum;
+// };
+
+// const getCommonElement = array => {
+//   let arrSameNum = [];
+
+//   for (let i = 0; i < array.length; i += 1) {
+//     for (let j = i + 1; j < array.length; j += 1) {
+
+//     }
+//   }
+
+//   return arrSameNum;
+// };
+
+// console.log(getCommonElement([1, 1, 1, 1, 2, 2, 2, 3, 2, 1, 17, 17, 19]));
+
+//=================================================
+
+// const isFree = deep => {
+//   const up = 7;
+//   const down = 2;
+//   let distance = down;
+//   let count = 0;
+
+//   do {
+//     distance += up - down;
+//     count += 1;
+//   } while (distance < deep);
+
+//   return count;
+// };
+
+// const isFree = deep => {
+//   const up = 7;
+//   const down = 2;
+//   let distance = down;
+//   let count = 0;
+
+//   while (distance < deep) {
+//     distance += up - down;
+//     count += 1;
+//   }
+
+//   return count;
+// };
+
+// console.log(isFree(42));
+// console.log(isFree(17));
+// console.log(isFree(18));
+
+//=================================================
+//=================================================
+//=================================================
+//=================================================

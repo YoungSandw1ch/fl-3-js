@@ -526,7 +526,58 @@
 // .reduce((acc, user) => acc + user.balance, 0);
 // // Change code above this line
 //=========================================================
+//Потрібно створити функцію яка буде приймати 2 параметри
+//1 параметр це масив всіх юзерів
+//2 параметр це масив з іменами чоловічими
+// -----Повертає----
+// 1 індекси чоловічих імен в масив mensIndex
+// 2 індекси жіночих імен в масив womensIndex
+// 3 імена в масив womens
+
+// const users = [
+//   'Artem',
+//   'Anna',
+//   'Larisa',
+//   'Maksim',
+//   'Svetlana',
+//   'David',
+//   'Roman',
+//   'Olga',
+// ];
+// const mensIndex = [];
+// const womensIndex = [];
+// const mens = ['Artem', 'Maksim', 'David', 'Roman'];
+// const womens = [];
+
+// function sortUsers(users, mens) {
+//   for (let i = 0; i < users.length; i += 1) {
+//     const isMan = mens.includes(users[i]);
+//     if (isMan) {
+//       mensIndex.push(i);
+//     } else {
+//       womensIndex.push(i);
+//       womens.push(users[i]);
+//     }
+//   }
+// }
+
+// const sortUsers = (users, mens) => {
+//   for (const user of users) {
+//     if (mens.includes(user)) {
+//       mensIndex.push(users.indexOf(user));
+//     } else {
+//       womensIndex.push(users.indexOf(user));
+//       womens.push(user);
+//     }
+//   }
+// };
+
+// sortUsers(users, mens);
+// console.log(mensIndex);
+// console.log(womensIndex);
+// console.log(womens);
 //=========================================================
+
 //=========================================================
 //=========================================================
 //=========================================================
