@@ -174,3 +174,14 @@
 // console.log(filterArray([1, 2, 3, 4, 5], 5));
 // console.log(filterArray([12, 24, 8, 41, 76], 38));
 //===========================================================
+
+// let number = 10;
+// console.log(number);
+
+// console.log(`number++ `, number++);
+
+// console.log(`number `, number);
+
+// console.log(`++number `, ++number);
+
+//===========================================================
