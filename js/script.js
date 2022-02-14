@@ -246,6 +246,7 @@
 // console.log(filterArray([12, 24, 8, 41, 76], 38));
 
 //===========================================================
+<<<<<<< Updated upstream
 
 // let number = 10;
 // console.log(number);
@@ -257,3 +258,65 @@
 // console.log(`++number `, ++number);
 
 //===========================================================
+=======
+class User {
+  email;
+  constructor(email) {
+    this.email = email;
+  }
+
+  get email() {
+    return this.email;
+  }
+
+  set email(newEmail) {
+    this.email = newEmail;
+  }
+}
+class ContentEditor extends User {
+  constructor({ email, posts }) {
+    super(email);
+    this.posts = posts;
+  }
+
+  get posts() {
+    return this.post;
+  }
+
+  set posts(newPost) {
+    this.post = newPost;
+  }
+}
+
+class NameOfEditor extends ContentEditor {
+  constructor({ email, posts, name }) {
+    super({ email, posts });
+    this.name = name;
+  }
+}
+
+const nameEditor = new NameOfEditor({
+  email: 'mango@mail.com',
+  posts: [],
+  name: 'Mango',
+});
+
+const editor = new ContentEditor({ email: 'mango@mail.com', posts: [] });
+
+const user = new User('email@mail.com');
+console.log(user);
+
+console.log(editor); // { email: 'mango@mail.com', posts: [] }
+console.log(editor.email); // 'mango@mail.com'
+editor.email = 'poly@mail.com';
+console.log(editor.email);
+editor.post = [1, 2];
+console.log(editor.post);
+
+console.log(nameEditor);
+nameEditor.posts = [5, 6];
+console.log(nameEditor.posts);
+nameEditor.email = 'user@mail.com';
+console.log(nameEditor.email);
+console.log(nameEditor);
+>>>>>>> Stashed changes
