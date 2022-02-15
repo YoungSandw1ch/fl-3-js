@@ -246,7 +246,6 @@
 // console.log(filterArray([12, 24, 8, 41, 76], 38));
 
 //===========================================================
-<<<<<<< Updated upstream
 
 // let number = 10;
 // console.log(number);
@@ -258,7 +257,6 @@
 // console.log(`++number `, ++number);
 
 //===========================================================
-=======
 class User {
   email;
   constructor(email) {
@@ -306,8 +304,8 @@ const editor = new ContentEditor({ email: 'mango@mail.com', posts: [] });
 const user = new User('email@mail.com');
 console.log(user);
 
-console.log(editor); // { email: 'mango@mail.com', posts: [] }
-console.log(editor.email); // 'mango@mail.com'
+console.log(editor);
+console.log(editor.email);
 editor.email = 'poly@mail.com';
 console.log(editor.email);
 editor.post = [1, 2];
@@ -319,4 +317,3 @@ console.log(nameEditor.posts);
 nameEditor.email = 'user@mail.com';
 console.log(nameEditor.email);
 console.log(nameEditor);
->>>>>>> Stashed changes
