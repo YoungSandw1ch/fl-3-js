@@ -257,63 +257,117 @@
 // console.log(`++number `, ++number);
 
 //===========================================================
-class User {
-  email;
-  constructor(email) {
-    this.email = email;
-  }
 
-  get email() {
-    return this.email;
-  }
+/*
+ *=================================зацикливание сеттера set============
+ */
 
-  set email(newEmail) {
-    this.email = newEmail;
-  }
-}
-class ContentEditor extends User {
-  constructor({ email, posts }) {
-    super(email);
-    this.posts = posts;
-  }
+// class User {
+//   email;
+//   constructor(email) {
+//     this.email = email;
+//   }
 
-  get posts() {
-    return this.post;
-  }
+//   get email() {
+//     return this.email;
+//   }
 
-  set posts(newPost) {
-    this.post = newPost;
-  }
-}
+//   set email(newEmail) {
+//     this.email = newEmail;
+//   }
+// }
+// class ContentEditor extends User {
+//   constructor({ email, posts }) {
+//     super(email);
+//     this.posts = posts;
+//   }
 
-class NameOfEditor extends ContentEditor {
-  constructor({ email, posts, name }) {
-    super({ email, posts });
-    this.name = name;
-  }
-}
+//   get posts() {
+//     return this.post;
+//   }
 
-const nameEditor = new NameOfEditor({
-  email: 'mango@mail.com',
-  posts: [],
-  name: 'Mango',
-});
+//   set posts(newPost) {
+//     this.post = newPost;
+//   }
+// }
 
-const editor = new ContentEditor({ email: 'mango@mail.com', posts: [] });
+// class NameOfEditor extends ContentEditor {
+//   constructor({ email, posts, name }) {
+//     super({ email, posts });
+//     this.name = name;
+//   }
+// }
 
-const user = new User('email@mail.com');
-console.log(user);
+// const nameEditor = new NameOfEditor({
+//   email: 'mango@mail.com',
+//   posts: [],
+//   name: 'Mango',
+// });
 
-console.log(editor);
-console.log(editor.email);
-editor.email = 'poly@mail.com';
-console.log(editor.email);
-editor.post = [1, 2];
-console.log(editor.post);
+// const editor = new ContentEditor({ email: 'mango@mail.com', posts: [] });
 
-console.log(nameEditor);
-nameEditor.posts = [5, 6];
-console.log(nameEditor.posts);
-nameEditor.email = 'user@mail.com';
-console.log(nameEditor.email);
-console.log(nameEditor);
+// const user = new User('email@mail.com');
+// console.log(user);
+
+// console.log(editor);
+// console.log(editor.email);
+// editor.email = 'poly@mail.com';
+// console.log(editor.email);
+// editor.post = [1, 2];
+// console.log(editor.post);
+
+// console.log(nameEditor);
+// nameEditor.posts = [5, 6];
+// console.log(nameEditor.posts);
+// nameEditor.email = 'user@mail.com';
+// console.log(nameEditor.email);
+// console.log(nameEditor);
+
+/*
+ *=====================================================================
+ */
+// let total = 0;
+// function add(...args) {
+//   for (const arg of args) {
+//     total += arg;
+//   }
+//   return total;
+// }
+
+// console.log(add(74, 11, 62, 46, 12, 36));
+/*
+ *=====================================================================
+ */
+/*
+ *=====================================================================
+ */
+/*
+ *=====================================================================
+ */
+/*
+ *=====================================================================
+ */
+/*
+ *=====================================================================
+ */
+/*
+ *=====================================================================
+ */
+/*
+ *=====================================================================
+ */
+/*
+ *=====================================================================
+ */
+/*
+ *=====================================================================
+ */
+/*
+ *=====================================================================
+ */
+/*
+ *=====================================================================
+ */
+/*
+ *=====================================================================
+ */
