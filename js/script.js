@@ -447,23 +447,136 @@
 // console.log(account.getTransactionTotal(Transaction.DEPOSIT));
 // console.log(account.getTransactionTotal(Transaction.WITHDRAW));
 /*
- *=====================================================================
+ *===================Example 1 - Деструктуризация====================
  */
+// function calcBMI({ weight, height }) {
+//   const numericWeight = Number(weight.replace(',', '.'));
+//   const numericHeight = Number(height.replace(',', '.'));
+//   return Number((numericWeight / numericHeight ** 2).toFixed(1));
+// }
+
+// console.log(
+//   calcBMI({
+//     weight: '88,3',
+//     height: '1.75',
+//   }),
+// );
+
+/*
+ *=====================Example 2 - Деструктуризация====================
+ */
+// function printContactsInfo({ names, phones }) {
+//   const nameList = names.split(',');
+//   const phoneList = phones.split(',');
+//   for (let i = 0; i < nameList.length; i += 1) {
+//     console.log(`${nameList[i]}: ${phoneList[i]}`);
+//   }
+// }
+
+// printContactsInfo({
+//   names: 'Jacob,William,Solomon,Artemis',
+//   phones: '89001234567,89001112233,890055566377,890055566300',
+// });
+/*
+ *==================Example 3 - Глубокая деструктуризация==============
+ */
+// function getBotReport({ companyName, bots: { repair, defence } }) {
+//   return `${companyName} has ${repair + defence} bots in stock`;
+// }
+
+// // Было
+// // console.log(getBotReport('Cyberdyne Systems', 150, 50));
+
+// // Ожидается
+// console.log(
+//   getBotReport({
+//     companyName: 'Cyberdyne Systems',
+//     bots: {
+//       repair: 150,
+//       defence: 50,
+//     },
+//   }),
+// ); // "Cyberdyne Systems has 200 bots in stock"
+/*
+ *==================Example 4 - Деструктуризация=======================
+ */
+
+// function getStockReport({ companyName, stock }) {
+//   let total = 0;
+//   for (const value of Object.values(stock)) {
+//     total += value;
+//   }
+//   return `${companyName} has ${total} items in stock.`;
+// }
+
+// console.log(
+//   getStockReport({
+//     companyName: 'Cyberdyne Systems',
+//     stock: {
+//       repairBots: 150,
+//       defenceBots: 50,
+//     },
+//   }),
+// ); // "Cyberdyne Systems has 200 items in stock"
+
+// console.log(
+//   getStockReport({
+//     companyName: 'Belacci',
+//     stock: {
+//       shoes: 20,
+//       skirts: 10,
+//       hats: 5,
+//     },
+//   }),
+// ); // "Belacci has 35 item in stock"
 /*
  *=====================================================================
  */
+// function createContact(partialContact) {
+//   return {
+//     list: 'default',
+//     ...partialContact,
+//     id: generateId(),
+//     createdAt: Date.now(),
+//   };
+// }
+
+// console.log(
+//   createContact({
+//     name: 'Mango',
+//     email: 'mango@mail.com',
+//     list: 'friends',
+//   }),
+// );
+// console.log(
+//   createContact({
+//     name: 'Poly',
+//     email: 'poly@hotmail.com',
+//   }),
+// );
+
+// function generateId() {
+//   return '_' + Math.random().toString(36).substr(2, 9);
+// }
 /*
  *=====================================================================
  */
-/*
- *=====================================================================
- */
-/*
- *=====================================================================
- */
-/*
- *=====================================================================
- */
+const user = {
+  name: 'Jacques Gluke',
+  tag: 'jgluke',
+  location: {
+    country: 'Jamaica',
+    city: 'Ocho Rios',
+  },
+  stats: {
+    followers: 5603,
+    views: 4827,
+    likes: 1308,
+  },
+};
+
+console.log(Object.keys(user));
+console.log(Object.keys(user.location));
 /*
  *=====================================================================
  */
