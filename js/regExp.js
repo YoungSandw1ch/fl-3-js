@@ -73,21 +73,39 @@
 /*
  *====================================================
  */
-let regexp = /\#\w{6}\b/g;
+// let regexp = /\#\w{6}\b/g;
+// let regexp1 = /\#[a-z0-9]{6}\b/gi;
 
-let str =
-  'color:#121212; background-color:#AA00ef bad-colors:f#fddee #fd2 #12345678';
+// let str =
+//   'color:#121212; background-color:#AA00ef bad-colors:f#fddee #fd2 #12345678';
 
-console.log(str.match(regexp)); // #121212,#AA00ef
+// console.log(str.match(regexp)); // #121212,#AA00ef
+// console.log(str.match(regexp1)); // #121212,#AA00ef
 /*
  *====================================================
  */
+// console.log('123 456'.match(/\d+? \d+?/g)); // 123, 4
 /*
  *====================================================
  */
+// // let regexp = /<!--[^>]*>/g;
+// let regexp = /<!--.*?-->/gs;
+
+// let str = `... <!-- My -- comment
+// test --> ..  <!----> ..
+// `;
+
+// console.log(str.match(regexp)); // '<!-- My -- comment \n test -->', '<!---->'
 /*
  *====================================================
  */
+// let regexp = /<[a-z].*?>/g;
+// let regexp = /<\w.*?>/g;
+// let regexp = /<[^>]+>/g;
+
+// let str = '<> <a href="/"><input type="radio" checked> <b>';
+
+// console.log(str.match(regexp)); // '<a href="/">', '<input type="radio" checked>', '<b>'
 /*
  *====================================================
  */
