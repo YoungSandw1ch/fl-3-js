@@ -55,16 +55,35 @@
  */
 // let str = '+7(903)-123-45-67';
 // let str2 = 'https://www.codewars.com/dashboard';
+let str2 = 'https://www.codewars-wars.com/dashboard';
 
 // let regexp = /\d/g;
-// let regExp = /\.|\/?\d+\./g;
+let regExp = /[./]?([\w-]+\.)/g;
 
 // console.log(str.match(regexp).join(''));
 // console.log(str.replace(/\D/g, ''));
 // console.log(str.match(/\d+/g));
 
-// console.log(str2.match(regExp));
+console.log(str2.match(regExp));
 // console.log(str2.split('.'));
+/*
+ *=====================================================
+ */
+// function domainName(url) {
+//   const arr = url.match(/[./]?([\w-]+\.)/g);
+
+//   if (arr[0].includes('www')) {
+//     const el = arr[1];
+//     return el.slice(0, el.length - 1);
+//   } else {
+//     const el2 = arr[0];
+//     return el2.slice(1, el2.length - 1);
+//   }
+// }
+
+// console.log(domainName('http://google.com'));
+// console.log(domainName('http://google.co.jp'));
+// console.log(domainName('www.xakep.ru'));
 /*
  *====================================================
  */
@@ -109,9 +128,15 @@
 /*
  *====================================================
  */
+// console.log('Gogogo now!'.match(/(go)+/i)); // "Gogogo"
 /*
  *====================================================
  */
+// let regexp = /(\w+\.)+\w+/g;
+// let regexp = /([\w-]+\.)+\w+/g;
+
+// console.log('site.com my.site.com'.match(regexp)); // site.com,my.site.com
+// console.log('site.com my-site.com'.match(regexp)); // site.com,my.site.com
 /*
  *====================================================
  */
