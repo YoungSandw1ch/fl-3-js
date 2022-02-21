@@ -55,17 +55,48 @@
  */
 // let str = '+7(903)-123-45-67';
 // let str2 = 'https://www.codewars.com/dashboard';
-let str2 = 'https://www.codewars-wars.com/dashboard';
+let str2 = 'codewars.com/dashboard';
 
-// let regexp = /\d/g;
-let regExp = /[./]?([\w-]+\.)/g;
+// let str2 = 'https://www.codewars-wars.com/dashboard';
+// let regExp = /[./]?([\w-]+\.)/g;
+// console.log(str2.match(regExp));
 
+const regexp = /(?:https\:\/\/)?(?:www\.)?([-\w]+)(?:\.)/;
+let result = str2.match(regexp);
+
+console.log(result);
+console.log(result[1]);
 // console.log(str.match(regexp).join(''));
 // console.log(str.replace(/\D/g, ''));
 // console.log(str.match(/\d+/g));
-
-console.log(str2.match(regExp));
 // console.log(str2.split('.'));
+/*
+ *=====================================================
+ */
+// const domainName = url => {
+//   // const regexp = /(?:http\:\/\/)?(?:https\:\/\/)?(?:www\.)?([-a-z0-9]+)(?:\.)/;
+//   const regexp = /(?:https?\:\/\/)?(?:www\.)?([-\w]+)(?:\.)/;
+//   return url.match(regexp)[1];
+// };
+
+// console.log(domainName('http://google.com'));
+// console.log(domainName('http://google.co.jp'));
+// console.log(domainName('www.xakep.ru'));
+// console.log(domainName('http://www.xakep.ru'));
+/*
+ *=====================================================
+ */
+// const domainName = url =>
+//   url
+//     .replace('http://', '')
+//     .replace('https://', '')
+//     .replace('www.', '')
+//     .split('.')[0];
+
+// console.log(domainName('http://google.com'));
+// console.log(domainName('http://google.co.jp'));
+// console.log(domainName('www.xakep.ru'));
+// console.log(domainName('http://www.xakep.ru'));
 /*
  *=====================================================
  */
@@ -140,12 +171,123 @@ console.log(str2.match(regExp));
 /*
  *====================================================
  */
+// let results = '<h1> <h2>'.matchAll(/<(.*?)>/gi);
+
+// // results - не массив, а перебираемый объект
+// console.log(results); // [object RegExp String Iterator]
+// console.log(results[0]); // undefined (*)
+
+// results = Array.from(results); // превращаем в массив
+
+// console.log(results);
+// console.log(results[0] + 'dwqfwq');
+// console.log(results[0]); // <h1>,h1 (первый тег)
+// console.log(results[1]); // <h2>,h2 (второй тег)
+
+// console.log(
+//   results.map(ar => {
+//     return ar[0];
+//   }),
+// );
+/*
+ *======================Задачи========================
+ */
+// const regexp = /#([a-z0-9]{3}){1,2}\b/gi;
+// const regexp = /#(\w{3}\b|\w{6}\b)/g;
+// let str = 'color: #3f3; and: #abcd; background-color: #AA00ef; and: #abcd';
+
+// console.log(str.match(regexp)); // #3f3 #AA00ef
 /*
  *====================================================
  */
+//Напишите регулярное выражение, которое ищет любые
+// десятичные числа, включая целочисленные, с плавающей точкой и отрицательные.
+
+// let regexp = /[-\d]+\.?\d*/g;
+// let regexp = /-?\d+(\.\d+)?/g;
+
+// let str = '-1.5 0 2 -123.4.';
+
+// console.log(str.match(regexp)); // -1.5, 0, 2, -123.4
 /*
  *====================================================
  */
+
+// const parse = str => {
+//   // return str.match(/[-?\d+(\.\d+)-+*/]+/g);//херня
+//   // return str.match(/[-\d(\.\d+)-+*/]+/g);//херня
+
+//   // return str.match(/[-+*/.0-9]+/g);//работает но херня
+//   const regexp = /(-?\d+(?:\.\d+)?)\s*([-+*\/])\s*(-?\d+(?:\.\d+)?)/;
+//   let result = str.match(regexp);
+
+//   result.shift();
+
+//   return result;
+// };
+
+// // console.log(parse(' 135.2 + -3.47899'));
+// console.log(parse('1.2 + 12'));
+
+// // let [a, op, b] = parse('1.2 * 3.4');
+// // let [a, op, b] = parse(' -3 / -6 ');
+// // let [a, op, b] = parse(' -1.2 + 3.4');
+// // let [a, op, b] = parse(' 135.2 + -3.47899');
+// let [a, op, b] = parse('1.2 + 12.44');
+
+// console.log(a); // 1.2
+// console.log(op); // *
+// console.log(b); // 3.4
+/*
+ *====================================================
+ */
+// function parse(expr) {
+//   let regexp = /(-?\d+(?:\.\d+)?)\s*([-+*\/])\s*(-?\d+(?:\.\d+)?)/;
+
+//   let result = expr.match(regexp);
+
+//   if (!result) return [];
+//   result.shift();
+
+//   return result;
+// }
+
+// console.log(parse('-1.23 * 3.45')); // -1.23, *, 3.45
+
+// let [a, op, b] = parse('-1.23 * 3.45');
+
+// console.log(a); // 1.2
+// console.log(op); // *
+// console.log(b); // 3.4
+/*
+ *====================================================
+ */
+// const parse = expr => {
+//   const regexp = /(-?\d+(\.*\d+)?)\s([-*+/])\s(-?\d+(\.\d+)?)/;
+//   const result = expr.match(regexp);
+//   return result[0].split(' ');
+// };
+
+// console.log(parse('-1.2 * 3.4'));
+// // console.log(parse('-1 * 3'));
+// let [a, op, b] = parse('-1.2 * 3.4');
+// // let [a, op, b] = parse('-1 * 3');
+
+// console.log(a); // 1.2
+// console.log(op); // *
+// console.log(b); // 3.4
+/*
+ *====================================================
+ */
+// let regexp = /^([a-f0-9]{2}\:){5}[a-f0-9]{2}$/i;
+
+// console.log(regexp.test('01:32:54:67:89:AB')); // true
+
+// console.log(regexp.test('0132546789AB')); // false (нет двоеточий)
+
+// console.log(regexp.test('01:32:54:67:89')); // false (5 чисел, должно быть 6)
+
+// console.log(regexp.test('01:32:54:67:89:ZZ')); // false (ZZ в конце строки)
 /*
  *====================================================
  */
@@ -156,6 +298,46 @@ console.log(str2.match(regExp));
  *====================================================
  */
 
+/*
+ *====================================================
+ */
+/*
+ *====================================================
+ */
+
+/*
+ *====================================================
+ */
+/*
+ *====================================================
+ */
+/*
+ *====================================================
+ */
+/*
+ *====================================================
+ */
+/*
+ *====================================================
+ */
+/*
+ *====================================================
+ */
+/*
+ *====================================================
+ */
+/*
+ *====================================================
+ */
+/*
+ *====================================================
+ */
+/*
+ *====================================================
+ */
+/*
+ *====================================================
+ */
 /*
  *====================================================
  */
