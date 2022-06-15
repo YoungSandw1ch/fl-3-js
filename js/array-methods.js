@@ -76,7 +76,7 @@ const players = [
 
 //---количество времени общее наиграное
 const totalTime = players.reduce((acc, player) => acc + player.timePlayed, 0);
-console.log(totalTime);
+// console.log(totalTime);
 
 //---игроки наигравшие больше 250
 // const HARD_TIME = 250;
@@ -295,10 +295,78 @@ const users = [
 // console.table(getFriends(users).sort());
 
 //========================================================
+// const array = [1, 2, 3, 4, 5];
+
+// function getExtremeElements(array) {
+//   // Change code below this line
+//   return [array[0], array[array.length - 1]];
+//   // array.splice(1, array.length - 2);
+//   // return [...array].splice(1, array.length - 2);
+
+//   // return array;
+
+//   // Change code above this line
+// }
+
+// console.log(getExtremeElements(array));
+//========================================================
+
+// const arr = [1, 2, 3, 4, 5];
+// const secondArr = [6, 7, 8, 9];
+// const maxLength = 7;
+
+// function makeArray(firstArray, secondArray, maxLength) {
+//   // Change code below this line
+//   const newArray = [...firstArray, ...secondArray];
+//   console.log(newArray);
+
+//   return newArray.length > maxLength ? newArray.slice(0, maxLength) : newArray;
+//   // Change code above this line
+// }
+
+// console.log(makeArray(arr, secondArr, maxLength));
 
 //========================================================
+// const arr = [1, 2, 3, 4, 5];
+
+// function includes(array, value) {
+//   // Change code below this line
+//   for (const item of array) {
+//     if (item === value) {
+//       return true;
+//     }
+//   }
+//   return false;
+//   // Change code above this line
+// }
+
+// console.log(includes(arr, 4));
 //========================================================
-//========================================================
+function withdraw(amount, balance) {
+  // Если  условие выполняется, вызывается console.log
+  // и выход из функции. Код идущий после тела if не выполнится.
+  if (amount === 0) {
+    console.log('Для проведения операции введите сумму больше нуля');
+    return;
+  }
+
+  // Если условие первого if не выполнилось, его тело пропускается
+  // и интерпретатор доходит до второго if.
+  // Если условие выполняется, вызывается console.log и выход из функции.
+  // Код идущий после тела if  не выполнится.
+  if (amount > balance) {
+    console.log('Недостаточно средств на счету');
+    return;
+  }
+
+  // Если ни один из предыдущих if не выполнился,
+  // интерпретатор доходит до этого кода и выполняет его.
+  console.log('Операция снятия средств проведена');
+}
+
+withdraw(0, 300); // "Для проведения операции введите сумму больше нуля"
+withdraw(500, 300); // "Недостаточно средств на счету"
+withdraw(100, 300); // "Операция снятия средств проведена"
 //========================================================
 //========================================================
 //========================================================
