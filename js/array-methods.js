@@ -362,18 +362,88 @@ const users = [
 //========================================================
 
 // Change code below this line
-function add(...args) {
-  let sum = 0;
-  for (const arg of args) {
-    sum += arg;
-  }
-  return sum;
-  // Change code above this line
-}
+// function add(...args) {
+//   let sum = 0;
+//   for (const arg of args) {
+//     sum += arg;
+//   }
+//   return sum;
+//   // Change code above this line
+// }
 
-console.log(add(5, 5, 10));
+// console.log(add(5, 5, 10));
 //========================================================
+
+// const bookShelf = {
+//   books: ['The last kingdom', 'Haze', 'The guardian of dreams'],
+//   updateBook(oldName, newName) {
+//     // Change code below this line
+//     const { books } = bookShelf;
+//     // for (let i = 0; i < books.length; i += 1) {
+//     //   console.log(books[i]);
+//     //   if (books[i] === oldName) {
+//     //     console.log(books[i] === oldName);
+//     //     books[i] = newName;
+//     //   }
+//     // }
+
+//     books.splice(books.indexOf(oldName), 1, newName);
+
+//     return books;
+//   },
+// };
+
+// console.log(bookShelf.updateBook('Haze', 'Dungeon chronicles'));
 //========================================================
+
+const atTheOldToad = {
+  potions: [
+    { name: 'Speed potion', price: 460 },
+    { name: 'Dragon breath', price: 780 },
+    { name: 'Stone skin', price: 520 },
+  ],
+  // Change code below this line
+  getPotions() {
+    return this.potions;
+  },
+
+  addPotion(newPotion) {
+    for (const potion of this.potions) {
+      if (potion.name === newPotion.name) {
+        return `Error! Potion ${newPotion.name} is already in your inventory!`;
+      }
+    }
+    this.potions.push(newPotion);
+  },
+
+  removePotion(potionName) {
+    let isNotRemoved = 1;
+    for (let i = 0; i < this.potions.length; i += 1) {
+      if (this.potions[i].name === potionName) {
+        this.potions.splice(i, 1);
+        isNotRemoved = 0;
+      }
+    }
+    if (isNotRemoved) {
+      return `Potion ${potionName} is not in inventory!`;
+    }
+  },
+
+  updatePotionName(oldName, newName) {
+    for (const potion of this.potions) {
+      if (potion.name === oldName) {
+        potion.name = newName;
+      }
+    }
+  },
+};
+
+console.log(atTheOldToad.addPotion({ name: 'Invisibility', price: 620 }));
+console.log(atTheOldToad.addPotion({ name: 'Power potion', price: 270 }));
+console.log(atTheOldToad.addPotion({ name: 'Stone skin', price: 520 }));
+console.log(atTheOldToad.removePotion('Stone skin'));
+console.log(atTheOldToad.updatePotionName('Power potion', 'Polymorth'));
+console.log(atTheOldToad.potions);
 //========================================================
 //========================================================
 //========================================================
