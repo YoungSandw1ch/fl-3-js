@@ -396,57 +396,128 @@ const users = [
 // console.log(bookShelf.updateBook('Haze', 'Dungeon chronicles'));
 //========================================================
 
-const atTheOldToad = {
-  potions: [
-    { name: 'Speed potion', price: 460 },
-    { name: 'Dragon breath', price: 780 },
-    { name: 'Stone skin', price: 520 },
-  ],
-  // Change code below this line
-  getPotions() {
-    return this.potions;
-  },
+// const atTheOldToad = {
+//   potions: [
+//     { name: 'Speed potion', price: 460 },
+//     { name: 'Dragon breath', price: 780 },
+//     { name: 'Stone skin', price: 520 },
+//   ],
+//   // Change code below this line
+//   getPotions() {
+//     return this.potions;
+//   },
 
-  addPotion(newPotion) {
-    for (const potion of this.potions) {
-      if (potion.name === newPotion.name) {
-        return `Error! Potion ${newPotion.name} is already in your inventory!`;
-      }
-    }
-    this.potions.push(newPotion);
-  },
+//   addPotion(newPotion) {
+//     for (const potion of this.potions) {
+//       if (potion.name === newPotion.name) {
+//         return `Error! Potion ${newPotion.name} is already in your inventory!`;
+//       }
+//     }
+//     this.potions.push(newPotion);
+//   },
 
-  removePotion(potionName) {
-    let isNotRemoved = 1;
-    for (let i = 0; i < this.potions.length; i += 1) {
-      if (this.potions[i].name === potionName) {
-        this.potions.splice(i, 1);
-        isNotRemoved = 0;
-      }
-    }
-    if (isNotRemoved) {
-      return `Potion ${potionName} is not in inventory!`;
-    }
-  },
+//   removePotion(potionName) {
+//     let isNotRemoved = 1;
+//     for (let i = 0; i < this.potions.length; i += 1) {
+//       if (this.potions[i].name === potionName) {
+//         this.potions.splice(i, 1);
+//         isNotRemoved = 0;
+//       }
+//     }
+//     if (isNotRemoved) {
+//       return `Potion ${potionName} is not in inventory!`;
+//     }
+//   },
 
-  updatePotionName(oldName, newName) {
-    for (const potion of this.potions) {
-      if (potion.name === oldName) {
-        potion.name = newName;
-      }
-    }
-  },
-};
+//   updatePotionName(oldName, newName) {
+//     for (const potion of this.potions) {
+//       if (potion.name === oldName) {
+//         potion.name = newName;
+//       }
+//     }
+//   },
+// };
 
-console.log(atTheOldToad.addPotion({ name: 'Invisibility', price: 620 }));
-console.log(atTheOldToad.addPotion({ name: 'Power potion', price: 270 }));
-console.log(atTheOldToad.addPotion({ name: 'Stone skin', price: 520 }));
-console.log(atTheOldToad.removePotion('Stone skin'));
-console.log(atTheOldToad.updatePotionName('Power potion', 'Polymorth'));
-console.log(atTheOldToad.potions);
+// console.log(atTheOldToad.addPotion({ name: 'Invisibility', price: 620 }));
+// console.log(atTheOldToad.addPotion({ name: 'Power potion', price: 270 }));
+// console.log(atTheOldToad.addPotion({ name: 'Stone skin', price: 520 }));
+// console.log(atTheOldToad.removePotion('Stone skin'));
+// console.log(atTheOldToad.updatePotionName('Power potion', 'Polymorth'));
+// console.log(atTheOldToad.potions);
 //========================================================
+// const changeEven = (numbers, value) =>
+//   numbers.map(number => {
+//     if (number % 2 === 0) {
+//       return number + value;
+//     } else {
+//       return number;
+//     }
+//   });
+
+// const changeEven = (numbers, value) =>
+//   numbers.map(number => (number % 2 === 0 ? number + value : number));
+
+// console.log(changeEven([1, 3, 4, 5, 6, 7, 8], 2));
+
 //========================================================
+// class Storage {
+//   constructor(items) {
+//     this.items = items;
+//   }
+//   getItems() {
+//     return this.items;
+//   }
+//   addItem(newItem) {
+//     this.items.push(newItem);
+//   }
+//   removeItem(itemToRemove) {
+//     this.items.splice(this.items.indexOf(itemToRemove), 1);
+//   }
+// }
+
+// // Change code above this line
+// const storage = new Storage(['Nanitoids', 'Prolonger', 'Antigravitator']);
+// console.log(storage);
+// console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator"]
+// storage.addItem('Droid');
+// console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator", "Droid"]
+// storage.removeItem('Prolonger');
+// console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]
+
 //========================================================
+// class StringBuilder {
+//   constructor(initialValue) {
+//     this.value = initialValue;
+//   }
+
+//   getValue() {
+//     return this.value;
+//   }
+
+//   padEnd(str) {
+//     this.value += str;
+//   }
+
+//   padStart(str) {
+//     this.value = str + this.value;
+//   }
+
+//   padBoth(str) {
+//     this.padStart(str);
+//     this.padEnd(str);
+//   }
+// }
+
+// // Change code above this line
+// const builder = new StringBuilder('.');
+// console.log(builder.getValue()); // "."
+// builder.padStart('^');
+// console.log(builder.getValue()); // "^."
+// builder.padEnd('^');
+// console.log(builder.getValue()); // "^.^"
+// builder.padBoth('=');
+// console.log(builder.getValue()); // "=^.^="
+
 //========================================================
 //========================================================
 //========================================================
