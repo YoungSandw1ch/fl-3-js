@@ -226,8 +226,55 @@
 // poly.login = 'Polycutie';
 // console.log(poly.login); // Polycutie
 /*
- *=================================================================
+ *=========================Example 4 - Заметки======================
  */
+class Notes {
+  static Priority = {
+    LOW: 'low',
+    NORMAL: 'normal',
+    HIGH: 'high',
+  };
+
+  constructor(items) {
+    this.items = items;
+  }
+
+  addNote(note) {
+    this.items.push(note);
+  }
+
+  removeNote(text) {
+    this.items = this.items.filter(e => e.text !== text);
+  }
+
+  updateNote(text, newPriority) {
+    this.items = this.items.map(e => {
+      if ((e.text = text)) {
+        e.priority = newPriority;
+      }
+      return e;
+    });
+  }
+}
+// addNote(note), removeNote(text) и updatePriority(text, newPriority)
+
+const myNotes = new Notes([]);
+console.log(myNotes);
+
+myNotes.addNote({ text: 'Моя первая заметка', priority: Notes.Priority.LOW });
+console.log(myNotes.items);
+
+myNotes.addNote({
+  text: 'Моя вторая заметка',
+  priority: Notes.Priority.NORMAL,
+});
+console.log(myNotes.items);
+
+myNotes.removeNote('Моя первая заметка');
+console.log(myNotes.items);
+
+myNotes.updateNote('Моя вторая заметка', Notes.Priority.HIGH);
+console.log(myNotes.items);
 /*
  *=================================================================
  */
