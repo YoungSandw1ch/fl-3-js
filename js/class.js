@@ -107,8 +107,163 @@
 // console.log(mango.isBlacklisted('poly@mail.com')); // true
 // //================================================================
 
-//================================================================
+//==========================Блоггер===============================
+// class Blogger {
+//   constructor({ email, age, numberOfPosts, topics }) {
+//     this.email = email;
+//     this.age = age;
+//     this.numberOfPosts = numberOfPosts;
+//     this.topics = topics;
+//   }
+
+//   getInfo() {
+//     return `User ${this.email} is ${this.age} years old and has ${this.numberOfPosts} posts`;
+//   }
+
+//   updatePostCount(value) {
+//     this.numberOfPosts += value;
+//   }
+// }
+
+// const mango = new Blogger({
+//   email: 'mango@mail.com',
+//   age: 24,
+//   numberOfPosts: 20,
+//   topics: ['tech', 'cooking'],
+// });
+// console.log(mango.getInfo()); // User mango@mail.com is 24 years old and has 20 posts
+// mango.updatePostCount(5);
+// console.log(mango.getInfo()); // User mango@mail.com is 24 years old and has 25 posts
+
+// const poly = new Blogger({
+//   email: 'poly@mail.com',
+//   age: 19,
+//   numberOfPosts: 17,
+//   topics: ['sports', 'gaming', 'health'],
+// });
+// console.log(poly.getInfo()); // User poly@mail.com is 19 years old and has 17 posts
+// poly.updatePostCount(4);
+// console.log(poly.getInfo()); // User poly@mail.com is 19 years old and has 21 posts
 //================================================================
 
 //================================================================
 //================================================================
+/*
+ *======================Example 2 - Хранилище======================
+ */
+// class Storage {
+//   constructor(items = []) {
+//     this.items = items;
+//   }
+
+//   getItems() {
+//     return this.items;
+//   }
+
+//   addItem(item) {
+//     this.items.push(item);
+//   }
+
+//   removeItem(item) {
+//     // this.items.splice(this.items.indexOf(item), 1);
+//     this.items = this.items.filter(e => e !== item);
+//   }
+// }
+
+// const storage = new Storage(['🍎', '🍋', '🍇', '🍑']);
+
+// const items = storage.getItems();
+// console.table(items); // [ '🍎', '🍋', '🍇', '🍑' ]
+
+// storage.addItem('🍌');
+// console.table(storage.items); // [ '🍎', '🍋', '🍇', '🍑', '🍌' ]
+
+// storage.removeItem('🍋');
+// console.table(storage.items); // [ '🍎', '🍇', '🍑', '🍌' ]
+/*
+ *============================Example 3 - User====================
+ */
+// class User {
+//   #login;
+//   #email;
+//   constructor({ login, email }) {
+//     this.#login = login;
+//     this.#email = email;
+//   }
+
+//   get login() {
+//     return this.#login;
+//   }
+
+//   set login(newLogin) {
+//     this.#login = newLogin;
+//   }
+
+//   get email() {
+//     return this.#email;
+//   }
+
+//   set email(newEmail) {
+//     this.#email = newEmail;
+//   }
+// }
+
+// const mango = new User({
+//   login: 'Mango',
+//   email: 'mango@dog.woof',
+// });
+
+// console.log(mango.login); // Mango
+// mango.login = 'Mangodoge';
+// console.log(mango.login); // Mangodoge
+
+// const poly = new User({
+//   login: 'Poly',
+//   email: 'poly@mail.com',
+// });
+
+// console.log(poly.login); // Poly
+// poly.login = 'Polycutie';
+// console.log(poly.login); // Polycutie
+/*
+ *=================================================================
+ */
+/*
+ *=================================================================
+ */
+/*
+ *=================================================================
+ */
+/*
+ *=================================================================
+ */
+/*
+ *=================================================================
+ */
+/*
+ *=================================================================
+ */
+/*
+ *=================================================================
+ */
+/*
+ *=================================================================
+ */
+/*
+ *=================================================================
+ */
+/*
+ *=================================================================
+ */
+/*
+ *=================================================================
+ */
+/*
+ *=================================================================
+ */
+/*
+ *=================================================================
+ */
+/*
+ *=================================================================
+ */
