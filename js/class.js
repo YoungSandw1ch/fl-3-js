@@ -228,56 +228,85 @@
 /*
  *=========================Example 4 - Заметки======================
  */
-class Notes {
-  static Priority = {
-    LOW: 'low',
-    NORMAL: 'normal',
-    HIGH: 'high',
-  };
+// class Notes {
+//   static Priority = {
+//     LOW: 'low',
+//     NORMAL: 'normal',
+//     HIGH: 'high',
+//   };
 
-  constructor(items) {
-    this.items = items;
-  }
+//   constructor(items) {
+//     this.items = items;
+//   }
 
-  addNote(note) {
-    this.items.push(note);
-  }
+//   addNote(note) {
+//     this.items.push(note);
+//   }
 
-  removeNote(text) {
-    this.items = this.items.filter(e => e.text !== text);
-  }
+//   removeNote(text) {
+//     this.items = this.items.filter(e => e.text !== text);
+//   }
 
-  updateNote(text, newPriority) {
-    this.items = this.items.map(e => {
-      if ((e.text = text)) {
-        e.priority = newPriority;
-      }
-      return e;
-    });
-  }
-}
-// addNote(note), removeNote(text) и updatePriority(text, newPriority)
+//   // updateNote(text, newPriority) {
+//   //   this.items = this.items.map(e => {
+//   //     if ((e.text = text)) {
+//   //       e.priority = newPriority;
+//   //     }
+//   //     return e;
+//   //   });
+//   // }
 
-const myNotes = new Notes([]);
-console.log(myNotes);
+//   updateNote(text, newPriority) {
+//     return (this.items = this.items.map(e =>
+//       e.text === text ? { ...e, priority: newPriority } : e,
+//     ));
+//   }
+// }
+// // addNote(note), removeNote(text) и updatePriority(text, newPriority)
 
-myNotes.addNote({ text: 'Моя первая заметка', priority: Notes.Priority.LOW });
-console.log(myNotes.items);
+// const myNotes = new Notes([]);
+// console.log(myNotes);
 
-myNotes.addNote({
-  text: 'Моя вторая заметка',
-  priority: Notes.Priority.NORMAL,
-});
-console.log(myNotes.items);
+// myNotes.addNote({ text: 'Моя первая заметка', priority: Notes.Priority.LOW });
+// console.log(myNotes.items);
 
-myNotes.removeNote('Моя первая заметка');
-console.log(myNotes.items);
+// myNotes.addNote({
+//   text: 'Моя вторая заметка',
+//   priority: Notes.Priority.NORMAL,
+// });
+// console.log(myNotes.items);
 
-myNotes.updateNote('Моя вторая заметка', Notes.Priority.HIGH);
-console.log(myNotes.items);
+// myNotes.removeNote('Моя первая заметка');
+// console.log(myNotes.items);
+
+// myNotes.updateNote('Моя вторая заметка', Notes.Priority.HIGH);
+// console.log(myNotes.items);
 /*
- *=================================================================
+ *================Example 5 - Toggle=============================
  */
+// class Toggle {
+//   constructor({ isOpen = false } = {}) {
+//     this.on = isOpen;
+//   }
+
+//   toggle() {
+//     this.on = !this.on;
+//   }
+// }
+
+// const firstToggle = new Toggle({ isOpen: true });
+// console.group('firstToggle');
+// console.log(firstToggle.on);
+// firstToggle.toggle();
+// console.log(firstToggle.on);
+// console.groupEnd('firstToggle');
+
+// const secondToggle = new Toggle();
+// console.group('secondToggle');
+// console.log(secondToggle.on);
+// secondToggle.toggle();
+// console.log(secondToggle.on);
+// console.groupEnd('secondToggle');
 /*
  *=================================================================
  */
