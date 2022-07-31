@@ -402,6 +402,15 @@
 /*
  *=================================================================
  */
+// const counter = x => 2 ** (x - 1);
+
+// console.log(counter(1));
+// console.log(counter(2));
+// console.log(counter(3));
+// console.log(counter(4));
+// console.log(counter(5));
+// console.log(counter(12));
+// console.log(counter(13));
 /*
  *=================================================================
  */
