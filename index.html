@@ -6,24 +6,60 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="./css/styles.css">
-  <!-- <style>
-    body {
+  <style>
+    /* body {
       background-color: rgb(32, 33, 36)
+    } */
+    .container {
+      width: 300px;
     }
-  </style> -->
+
+    .close {
+      width: 20px;
+      height: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .item {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .form {
+      max-width: 500px;
+    }
+
+    .label {
+      flex-grow: 1;
+    }
+
+    .list {
+      padding: 0;
+    }
+
+    .done {
+      font-style: italic;
+      text-decoration: line-through;
+    }
+  </style>
 </head>
 
 <body>
   <h1 class="title">js</h1>
 
-  <!-- <form>
-    <label>
-      <span>Add task</span>
-      <input type="text" name="text">
-    </label>
-    <button type="submit"> + Add</button>
-  </form> -->
+  <div class="container">
+    <form class="form">
+      <label>
+        <span>Add task</span>
+        <input type="text" name="text">
+      </label>
+      <button type="submit"> + Add</button>
+    </form>
 
+    <ol class="list"></ol>
+  </div>
   <!-- <ol>
     <li>
       <label>

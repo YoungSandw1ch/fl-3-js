@@ -1,53 +1,63 @@
 const items = [
-  { id: 1, name: 'bread', isCheked: true },
-  { id: 2, name: 'potato', isCheked: false },
-  { id: 3, name: 'tomato', isCheked: true },
-  { id: 4, name: 'chery', isCheked: false },
-  { id: 5, name: 'pork', isCheked: true },
+  { id: '1', name: 'bread', isCheked: true },
+  { id: '2', name: 'potato', isCheked: false },
+  { id: '3', name: 'tomato', isCheked: true },
+  { id: '4', name: 'chery', isCheked: false },
+  { id: '5', name: 'pork', isCheked: true },
 ];
 
 const refs = {
-  body: document.querySelector('body'),
   title: document.querySelector('.title'),
+  list: document.querySelector('ol'),
+  form: document.querySelector('.form'),
 };
 
-const createForm = () => {
-  const formEl = document.createElement('form');
-  const labelEl = document.createElement('label');
-  const spanEl = document.createElement('span');
-  const inputEl = document.createElement('input');
-  const buttonEl = document.createElement('button');
+createList(items);
 
-  spanEl.textContent = 'Add task';
-  inputEl.type = 'text';
-  inputEl.name = 'text';
-  buttonEl.type = 'submit';
-  buttonEl.textContent = ' + Add';
+refs.list.addEventListener('change', onItemSelect);
+refs.form.addEventListener('submit', onSubmitBtnAddItem);
 
-  labelEl.append(spanEl, inputEl);
-  formEl.append(labelEl, buttonEl);
-  refs.title.after(formEl);
-};
-
-const createList = items => {
-  const listEl = document.createElement('ol');
+function createList(items) {
   const itemsMarkup = items.map(createItem).join('');
 
-  refs.body.appendChild(listEl);
-  listEl.insertAdjacentHTML('afterbegin', itemsMarkup);
-};
+  refs.list.innerHTML = '';
+  refs.list.insertAdjacentHTML('afterbegin', itemsMarkup);
+}
 
-function createItem({ name, isCheked }) {
+function createItem({ name, isCheked, id }) {
   const item = `
-  <li>
-    <label>
-      <span>${name}</span>
+  <li class='item' id='${id}'>
+    <label class='label'>
       <input type="checkbox" ${isCheked ? 'checked' : ''}>
+      <span class='list__text'>${name}</span>
     </label>
+    <button class='close'>x</button>
   </li>
   `;
   return item;
 }
 
-createForm();
-createList(items);
+function onItemSelect(e) {
+  const listItem = e.target.closest('li');
+  console.log(listItem.id);
+  items.map(el => (el.id === listItem.id ? (el.isCheked = !el.isCheked) : el));
+}
+
+function onSubmitBtnAddItem(e) {
+  e.preventDefault();
+  const inputRef = document.querySelector('[name="text"]');
+  const item = {
+    id: Date.now().toString(),
+    name: inputRef.value,
+    isCheked: false,
+  };
+
+  items.push(item);
+  refs.form.reset();
+
+  createList(items);
+}
+
+function isDone(items) {
+  const listItems = document.querySelectorAll('.list__text');
+}
