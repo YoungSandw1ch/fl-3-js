@@ -15,6 +15,7 @@ const refs = {
 createList(items);
 
 refs.list.addEventListener('change', onItemSelect);
+refs.list.addEventListener('click', onCloseBtn);
 refs.form.addEventListener('submit', onSubmitBtnAddItem);
 
 function createList(items) {
@@ -26,10 +27,10 @@ function createList(items) {
 
 function createItem({ name, isCheked, id }) {
   const item = `
-  <li class='item' id='${id}'>
+  <li class='item ${isCheked ? 'item--changeBg' : ''}' id='${id}'>
     <label class='label'>
       <input type="checkbox" ${isCheked ? 'checked' : ''}>
-      <span class='list__text'>${name}</span>
+      <span class='list__text ${isCheked ? 'done' : ''}'>${name}</span>
     </label>
     <button class='close'>x</button>
   </li>
@@ -39,25 +40,46 @@ function createItem({ name, isCheked, id }) {
 
 function onItemSelect(e) {
   const listItem = e.target.closest('li');
-  console.log(listItem.id);
-  items.map(el => (el.id === listItem.id ? (el.isCheked = !el.isCheked) : el));
+  const span = e.target.nextElementSibling;
+
+  items.map(el => {
+    if (el.id === listItem.id) {
+      el.isCheked = !el.isCheked;
+      span.classList.toggle('done');
+      listItem.classList.toggle('item--changeBg');
+    }
+  });
 }
 
 function onSubmitBtnAddItem(e) {
   e.preventDefault();
   const inputRef = document.querySelector('[name="text"]');
-  const item = {
-    id: Date.now().toString(),
-    name: inputRef.value,
-    isCheked: false,
-  };
+  if (inputRef.value) {
+    const item = {
+      id: Date.now().toString(),
+      name: inputRef.value,
+      isCheked: false,
+    };
 
-  items.push(item);
-  refs.form.reset();
+    items.push(item);
+    refs.form.reset();
 
-  createList(items);
+    createList(items);
+  }
 }
 
-function isDone(items) {
-  const listItems = document.querySelectorAll('.list__text');
+function onCloseBtn(e) {
+  //если таргет кнопка с класом close
+  if (e.target.getAttribute('class') === 'close') {
+    const listItem = e.target.closest('li');
+    //удалить этот елемент li
+    listItem.remove();
+
+    //удалить обьект продукта из массива
+    items.map((el, i, a) => {
+      if (el.id === listItem.id) {
+        a.splice(i, 1);
+      }
+    });
+  }
 }
