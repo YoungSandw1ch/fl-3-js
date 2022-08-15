@@ -69,8 +69,8 @@ function onSubmitBtnAddItem(e) {
 }
 
 function onCloseBtn(e) {
-  //если таргет кнопка с класом close
-  if (e.target.getAttribute('class') === 'close') {
+  //если таргет именно кнопка (можна через класс getAttribute)
+  if (e.target.nodeName === 'BUTTON') {
     const listItem = e.target.closest('li');
     //удалить этот елемент li
     listItem.remove();
