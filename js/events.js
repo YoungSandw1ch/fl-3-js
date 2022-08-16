@@ -51,30 +51,30 @@
 // }
 
 /*
- *----------------------просто повторил материал
+ *----------------------просто повторил материал--------
  */
-// const box = document.querySelector('.box');
-// const selectedTags = new Set();
+const box = document.querySelector('.box');
+const selectedTags = new Set();
 
-// box.addEventListener('click', onBtnClick);
+box.addEventListener('click', onBtnClick);
 
-// function onBtnClick(e) {
-//   if (e.target.nodeName !== 'BUTTON') return;
+function onBtnClick(e) {
+  if (e.target.nodeName !== 'BUTTON') return;
 
-//   const activeBtn = e.target;
-//   activeBtn.classList.toggle('btn--active');
+  const activeBtn = e.target;
+  activeBtn.classList.toggle('btn--active');
 
-//   const isBtnActive = activeBtn.classList.contains('btn--active');
-//   const tag = activeBtn.dataset.value;
+  const isBtnActive = activeBtn.classList.contains('btn--active');
+  const tag = activeBtn.dataset.value;
 
-//   if (!isBtnActive) {
-//     selectedTags.delete(tag);
-//   } else {
-//     selectedTags.add(tag);
-//   }
-//   // just try work with sets
-//   // const filteredTags = Array.from(selectedTags).filter(e => e !== '#js');
-//   // console.log('filtered: ', filteredTags);
+  if (!isBtnActive) {
+    selectedTags.delete(tag);
+  } else {
+    selectedTags.add(tag);
+  }
+  // just try work with sets
+  // const filteredTags = Array.from(selectedTags).filter(e => e !== '#js');
+  // console.log('filtered: ', filteredTags);
 
-//   console.log(selectedTags);
-// }
+  console.log(selectedTags);
+}
