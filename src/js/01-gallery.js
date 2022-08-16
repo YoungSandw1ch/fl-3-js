@@ -28,22 +28,26 @@ function createGalleryItemsMarkup(items) {
 
 function onPreviewImgClick(e) {
   e.preventDefault();
-  const img = e.target;
-  if (!img.classList.contains('gallery__image')) return;
+  if (!e.target.classList.contains('gallery__image')) return;
 
-  instance = basicLightbox.create(`
-    <img src="${img.dataset.source}">
-`);
+  instance = createInstance(e);
   instance.show();
   addBodyKeyPressListener();
 }
 
-function onEscapePress(e) {
-  if (e.code !== 'Escape') return;
-  console.log(e.code);
+function createInstance(e) {
+  return basicLightbox.create(
+    `
+    <img src="${e.target.dataset.source}">
+`,
+    { onClose: removeBodyKeyPressListener }, //обьект настроек задача которого выполнить функцию перед закрытием модалки
+  );
+}
 
+function onEscapePress(e) {
+  console.log(`Нажатие ${e.code} для контроля роботы слушателя клавиатуры`);
+  if (e.code !== 'Escape') return;
   instance.close();
-  removeBodyKeyPressListener();
 }
 
 function addBodyKeyPressListener() {
