@@ -1,13 +1,11 @@
 import { galleryItems } from './gallery-items.js';
-// import * as basicLightbox from 'basiclightbox';
 
-const refs = {
-  gallery: document.querySelector('.gallery'),
-};
+const galleryRef = document.querySelector('.gallery');
 const galleryItemsMarkup = createGalleryItemsMarkup(galleryItems);
+let instance = 0;
 
-refs.gallery.insertAdjacentHTML('beforeend', galleryItemsMarkup);
-refs.gallery.addEventListener('click', onPreviewImgClick);
+galleryRef.insertAdjacentHTML('beforeend', galleryItemsMarkup);
+galleryRef.addEventListener('click', onPreviewImgClick);
 
 function createGalleryItemsMarkup(items) {
   return items
@@ -31,11 +29,27 @@ function createGalleryItemsMarkup(items) {
 function onPreviewImgClick(e) {
   e.preventDefault();
   const img = e.target;
-  if (!img.classList.contains(gallery__image)) return;
+  if (!img.classList.contains('gallery__image')) return;
 
-  const instance = basicLightbox.create(`
+  instance = basicLightbox.create(`
     <img src="${img.dataset.source}">
 `);
-
   instance.show();
+  addBodyKeyPressListener();
+}
+
+function onEscapePress(e) {
+  if (e.code !== 'Escape') return;
+  console.log(e.code);
+
+  instance.close();
+  removeBodyKeyPressListener();
+}
+
+function addBodyKeyPressListener() {
+  document.body.addEventListener('keydown', onEscapePress);
+}
+
+function removeBodyKeyPressListener() {
+  document.body.removeEventListener('keydown', onEscapePress);
 }
