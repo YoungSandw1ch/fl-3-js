@@ -4,8 +4,11 @@ const galleryRef = document.querySelector('.gallery');
 const galleryItemsMarkup = createItemsMarkup(galleryItems);
 
 galleryRef.insertAdjacentHTML('beforeend', galleryItemsMarkup);
-galleryRef.addEventListener('click', onGalleryImgClick);
-var galleyLightbox = new SimpleLightbox('.gallery a', { captionsData: 'alt' });
+
+const galleyLightbox = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionDelay: 250,
+});
 
 function createItemsMarkup(items) {
   return items
@@ -16,11 +19,4 @@ function createItemsMarkup(items) {
         </a>`,
     )
     .join('');
-}
-
-function onGalleryImgClick(e) {
-  e.preventDefault();
-  if (!e.target.classList.contains('gallery__image')) return;
-
-  galleyLightbox.open(e.target);
 }
