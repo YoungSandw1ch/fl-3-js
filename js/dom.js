@@ -7,7 +7,6 @@ const items = [
 ];
 
 const refs = {
-  title: document.querySelector('.title'),
   list: document.querySelector('ol'),
   form: document.querySelector('.form'),
 };

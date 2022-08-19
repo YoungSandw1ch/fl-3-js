@@ -561,25 +561,112 @@
 /*
  *=====================================================================
  */
-const user = {
-  name: 'Jacques Gluke',
-  tag: 'jgluke',
-  location: {
-    country: 'Jamaica',
-    city: 'Ocho Rios',
-  },
-  stats: {
-    followers: 5603,
-    views: 4827,
-    likes: 1308,
-  },
-};
+// const user = {
+//   name: 'Jacques Gluke',
+//   tag: 'jgluke',
+//   location: {
+//     country: 'Jamaica',
+//     city: 'Ocho Rios',
+//   },
+//   stats: {
+//     followers: 5603,
+//     views: 4827,
+//     likes: 1308,
+//   },
+// };
 
-console.log(Object.keys(user));
-console.log(Object.keys(user.location));
+// console.log(Object.keys(user));
+// console.log(Object.keys(user.location));
 /*
  *=====================================================================
  */
+let items = [
+  { id: '1', text: 'sdfgsg', isDone: false },
+  { id: '2', text: 'ery', isDone: true },
+  { id: '3', text: 'xcvb', isDone: false },
+  { id: '4', text: 'asdf', isDone: true },
+  { id: '5', text: 'uoi', isDone: false },
+];
+
+const refs = {
+  ul: document.querySelector('ul'),
+  form: document.querySelector('form'),
+};
+
+refs.form.addEventListener('submit', handleSubmit);
+refs.ul.addEventListener('click', handleListClick);
+
+renderList();
+
+function itemTemplate({ id, isDone, text }) {
+  `
+<li data-id="${id}">
+  <label>
+    <input type="checkbox" ${isDone ? 'checked' : ''} />
+    <span>${text}</span>
+  </label>
+  <button>x</button>
+</li>`;
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+
+  const text = event.target.elements.text.value;
+  const newItem = {
+    id: Date.now().toString(),
+    text,
+    isDone: false,
+  };
+
+  items.push(newItem);
+  renderList();
+  refs.form.reset();
+}
+
+function toggleItem(id) {
+  items = items.map(item =>
+    item.id === id
+      ? {
+          ...item,
+          isDone: !item.isDone,
+        }
+      : item,
+  );
+}
+
+function deleteItem(id) {
+  items = items.filter(item => item.id !== id);
+}
+
+function handleListClick(event) {
+  if (event.target === event.currentTarget) return;
+
+  const parent = event.target.closest('li');
+  const { id } = parent.dataset;
+
+  switch (event.target.nodeName) {
+    case 'INPUT':
+      toggleItem(id);
+      break;
+
+    case 'BUTTON':
+      deleteItem(id);
+      break;
+
+    default:
+      break;
+  }
+  renderList();
+}
+
+function renderList() {
+  const list = items.map(itemTemplate).join('');
+
+  refs.ul.innerHTML = '';
+  refs.ul.insertAdjacentHTML('beforeend', list);
+}
+
 /*
  *=====================================================================
  */
