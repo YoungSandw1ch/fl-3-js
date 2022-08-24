@@ -1,3 +1,5 @@
+import * as storage from './storage.js';
+
 const items = [
   { id: '1', name: 'bread', isCheked: true },
   { id: '2', name: 'potato', isCheked: false },
