@@ -1,4 +1,5 @@
 import * as storage from './storage.js';
+console.log(storage);
 
 const items = [
   { id: '1', name: 'bread', isCheked: true },
