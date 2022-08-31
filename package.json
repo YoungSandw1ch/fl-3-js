@@ -1,16 +1,14 @@
 {
   "devDependencies": {
+    "lodash.throttle": "^4.1.1",
     "parcel": "^2.7.0"
   },
   "name": "fl-3",
   "description": "first steps in js",
   "version": "1.0.0",
   "main": "index.js",
-  "dependencies": {
-    "lodash.throttle": "^4.1.1"
-  },
   "scripts": {
-    "start": "",
+    "start": "npx parcel index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
