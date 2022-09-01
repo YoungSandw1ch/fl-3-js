@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/index.748ad148.css">
+  <style>.container {
+  width: 330px;
+  background-color: #dded83;
+  border-radius: 10px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.close {
+  width: 20px;
+  height: 20px;
+  color: #fff;
+  background-color: #006a8e;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.item {
+  background-color: #50e3fd;
+  border: 1px solid #006a8e;
+  border-radius: 7px;
+  justify-content: space-between;
+  padding: 5px 10px 5px 0;
+  display: flex;
+}
+
+.item:not(:last-child) {
+  margin-bottom: 5px;
+}
+
+.form {
+  max-width: 500px;
+}
+
+.label {
+  flex-grow: 1;
+}
+
+.list {
+  padding: 0;
+}
+
+.done {
+  font-style: italic;
+  text-decoration: line-through;
+}
+
+.item--changeBg {
+  background-color: #edd683;
+}
+
+[type="submit"] {
+  color: #fff;
+  background-color: #ab6100;
+  border: none;
+  border-radius: 5px;
+  padding: 3px 10px;
+}
+
+form span {
+  text-transform: uppercase;
+  color: #ab6100;
+  font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 12px;
+}
+
+</style>
+</head>
+
+<body>
+  <ul>
+    <li><a href="/index.html">Назад</a></li>
+  </ul>
+
+  <div class="container">
+    <form class="form">
+      <label>
+        <span>Добавьте заметку</span>
+        <input type="text" name="text">
+      </label>
+      <button type="submit">Add</button>
+    </form>
+
+    <ol class="list"></ol>
+  </div>
+
+  <script src="/html/dom.2818399e.js" defer=""></script>
+</body>
+
+</html>

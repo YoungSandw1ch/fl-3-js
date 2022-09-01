@@ -1,0 +1,12 @@
+{
+  "name": "fl-3-js",
+  "source": "index.html",
+  "scripts": {
+    "start": "parcel -p 3333"
+  },
+  "devDependencies": {
+    "browserslist": "^4.21.3",
+    "lodash.throttle": "^4.1.1",
+    "parcel": "^2.7.0"
+  }
+}
