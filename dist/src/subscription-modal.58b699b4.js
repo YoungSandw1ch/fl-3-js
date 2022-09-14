@@ -538,12 +538,28 @@ var _bootstrapNativeDefault = parcelHelpers.interopDefault(_bootstrapNative);
 const MAX_OPENS = 3;
 const MODAL_TIME_INTERVALS = 3000;
 const modal = new (0, _bootstrapNativeDefault.default).Modal("#exampleModal");
-// openModal();
-// function openModal() {
-setTimeout(openModal, MODAL_TIME_INTERVALS);
-// }
+let modalOpensCounter = 0;
+let subscriptionStatus = false;
+const refs = {
+    modal: document.querySelector("#exampleModal"),
+    subscribeBtn: document.querySelector("button[data-subscription]")
+};
+openModal();
+refs.subscribeBtn.addEventListener("click", onSubscriptionBtn);
+refs.modal.addEventListener("hide.bs.modal", onModalHide);
 function openModal() {
-    modal.show();
+    const modalTimerId = setTimeout(()=>{
+        modal.show();
+        modalOpensCounter += 1;
+    }, MODAL_TIME_INTERVALS);
+}
+function onModalHide() {
+    if (modalOpensCounter === MAX_OPENS || subscriptionStatus) return;
+    openModal();
+}
+function onSubscriptionBtn() {
+    subscriptionStatus = true;
+    modal.hide();
 }
 
 },{"bootstrap.native":"6udud","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6udud":[function(require,module,exports) {
