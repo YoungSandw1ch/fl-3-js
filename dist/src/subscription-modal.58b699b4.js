@@ -551,6 +551,7 @@ function openModal() {
     const modalTimerId = setTimeout(()=>{
         modal.show();
         modalOpensCounter += 1;
+        console.log(`Modal is open: ${modalOpensCounter} time${modalOpensCounter > 1 ? "s" : ""}`);
     }, MODAL_TIME_INTERVALS);
 }
 function onModalHide() {
@@ -560,6 +561,7 @@ function onModalHide() {
 function onSubscriptionBtn() {
     subscriptionStatus = true;
     modal.hide();
+    console.log("Thank you for subscribe");
 }
 
 },{"bootstrap.native":"6udud","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6udud":[function(require,module,exports) {

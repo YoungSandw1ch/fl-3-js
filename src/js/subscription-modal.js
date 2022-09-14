@@ -19,6 +19,11 @@ function openModal() {
   const modalTimerId = setTimeout(() => {
     modal.show();
     modalOpensCounter += 1;
+    console.log(
+      `Modal is open: ${modalOpensCounter} time${
+        modalOpensCounter > 1 ? 's' : ''
+      }`,
+    );
   }, MODAL_TIME_INTERVALS);
 }
 
@@ -30,4 +35,5 @@ function onModalHide() {
 function onSubscriptionBtn() {
   subscriptionStatus = true;
   modal.hide();
+  console.log('Thank you for subscribe');
 }
