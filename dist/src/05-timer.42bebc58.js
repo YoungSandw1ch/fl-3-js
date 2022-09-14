@@ -540,72 +540,60 @@ const refs = {
     resetBtn: document.querySelector("button[data-action-reset]"),
     timer: document.querySelector(".js-timer")
 };
-// class Timer {
-//   #isActive;
-//   constructor(renderTimer) {
-//     this.renderTimer = renderTimer;
-//     this.#isActive = false;
-//     this.time = 0;
-//     this.timerId = null;
-//     this.pauseId = null;
-//     this.currentTime = 0;
-//     this.pauseTime = 0;
-//     this.init();
-//   }
-//   init() {
-//     const time = this.secondToStringTimer(0);
-//     this.renderTimer(time);
-//   }
-//   start() {
-//     if (this.#isActive) return;
-//     const startTime = this.currentTime || Date.now();
-//     this.#isActive = true;
-//     this.timerId = setInterval(() => {
-//       this.currentTime = this.pauseTime
-//         ? Date.now() - (this.pauseTime - startTime)
-//         : Date.now();
-//       this.time = this.secondToStringTimer(this.currentTime - startTime);
-//       this.renderTimer(this.time);
-//     }, 1000);
-//     if (this.pauseId) {
-//       clearInterval(this.pauseId);
-//       this.pauseId = null;
-//     }
-//   }
-//   stop() {
-//     clearInterval(this.timerId);
-//     this.time = 0;
-//     this.#isActive = false;
-//     this.currentTime = 0;
-//     this.init();
-//   }
-//   pause() {
-//     clearInterval(this.timerId);
-//     this.#isActive = false;
-//     this.pauseId = setInterval(() => {
-//       this.pauseTime = Date.now();
-//     }, 1000);
-//   }
-//   reset() {
-//     this.time = 0;
-//   }
-//   pad(value) {
-//     return String(value).padStart(2, '0');
-//   }
-//   secondToStringTimer(time) {
-//     const hour = this.pad(Math.floor((time / (60 * 60 * 1000)) % 24));
-//     const min = this.pad(Math.floor(((time / 1000) % (60 * 60)) / 60));
-//     const sec = this.pad(Math.floor(time / 1000) % 60);
-//     return { hour, min, sec };
-//   }
-// }
-function renderTimer({ hour , min , sec  }) {
-    refs.timer.textContent = `${hour}:${min}:${sec}`;
+//=========обычный таймер без использования Date================
+class Timer {
+    #isActive;
+    constructor(renderTimer){
+        this.renderTimer = renderTimer;
+        this.#isActive = false;
+        this.timerId = null;
+        this.time = 0;
+    }
+    start() {
+        if (this.#isActive) return;
+        this.#isActive = true;
+        this.timerId = setInterval(()=>{
+            this.time += 1;
+            const timeObject = this.secondToTime(this.time);
+            console.log(timeObject);
+            this.renderTimer(timeObject);
+        }, 1000);
+    }
+    stop() {
+        clearInterval(this.timerId);
+        this.#isActive = false;
+        this.time = 0;
+    }
+    pause() {
+        clearInterval(this.timerId);
+        this.#isActive = false;
+    }
+    reset() {
+        this.stop();
+        this.renderTimer(this.secondToTime(0));
+    }
+    pad(value) {
+        return String(value).padStart(2, "0");
+    }
+    secondToTime(s) {
+        const hour = this.pad(Math.floor(s / 3600 % 24));
+        const min = this.pad(Math.floor(s % 3600 / 60));
+        const sec = this.pad(Math.floor(s % 60));
+        return {
+            hour,
+            min,
+            sec
+        };
+    }
 }
 const timer = new Timer(renderTimer);
 refs.startBtn.addEventListener("click", timer.start.bind(timer));
 refs.stopBtn.addEventListener("click", timer.stop.bind(timer));
-refs.pauseBtn.addEventListener("click", timer.pause.bind(timer)); //================================================================
+refs.resetBtn.addEventListener("click", timer.reset.bind(timer));
+refs.pauseBtn.addEventListener("click", timer.pause.bind(timer));
+function renderTimer({ hour , min , sec  }) {
+    refs.timer.textContent = `${hour}:${min}:${sec}`;
+} //================================================================
  // function secondToStringTimer(time) {
  //   const hour = pad(Math.floor((time / (60 * 60 * 1000)) % 24));
  //   const min = pad(Math.floor(((time / 1000) % (60 * 60)) / 60));
@@ -617,6 +605,65 @@ refs.pauseBtn.addEventListener("click", timer.pause.bind(timer)); //============
  // }
  // renderTimer(secondToStringTimer(423565235));
  //================================================================
+ // class Timer {
+ //   #isActive;
+ //   constructor(renderTimer) {
+ //     this.renderTimer = renderTimer;
+ //     this.#isActive = false;
+ //     this.time = 0;
+ //     this.timerId = null;
+ //     this.pauseId = null;
+ //     this.currentTime = 0;
+ //     this.pauseTime = 0;
+ //     this.init();
+ //   }
+ //   init() {
+ //     const time = this.secondToStringTimer(0);
+ //     this.renderTimer(time);
+ //   }
+ //   start() {
+ //     if (this.#isActive) return;
+ //     const startTime = this.currentTime || Date.now();
+ //     this.#isActive = true;
+ //     this.timerId = setInterval(() => {
+ //       this.currentTime = this.pauseTime
+ //         ? Date.now() - (this.pauseTime - startTime)
+ //         : Date.now();
+ //       this.time = this.secondToStringTimer(this.currentTime - startTime);
+ //       this.renderTimer(this.time);
+ //     }, 1000);
+ //     if (this.pauseId) {
+ //       clearInterval(this.pauseId);
+ //       this.pauseId = null;
+ //     }
+ //   }
+ //   stop() {
+ //     clearInterval(this.timerId);
+ //     this.time = 0;
+ //     this.#isActive = false;
+ //     this.currentTime = 0;
+ //     this.init();
+ //   }
+ //   pause() {
+ //     clearInterval(this.timerId);
+ //     this.#isActive = false;
+ //     this.pauseId = setInterval(() => {
+ //       this.pauseTime = Date.now();
+ //     }, 1000);
+ //   }
+ //   reset() {
+ //     this.time = 0;
+ //   }
+ //   pad(value) {
+ //     return String(value).padStart(2, '0');
+ //   }
+ //   secondToStringTimer(time) {
+ //     const hour = this.pad(Math.floor((time / (60 * 60 * 1000)) % 24));
+ //     const min = this.pad(Math.floor(((time / 1000) % (60 * 60)) / 60));
+ //     const sec = this.pad(Math.floor(time / 1000) % 60);
+ //     return { hour, min, sec };
+ //   }
+ // }
 
 },{"../css/timer.css":"8ra6N"}],"8ra6N":[function() {},{}]},["dDhsf","8QVXY"], "8QVXY", "parcelRequirea42f")
 

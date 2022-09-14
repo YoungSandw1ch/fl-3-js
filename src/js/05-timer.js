@@ -8,6 +8,83 @@ const refs = {
   timer: document.querySelector('.js-timer'),
 };
 
+//=========обычный таймер без использования Date================
+class Timer {
+  #isActive;
+
+  constructor(renderTimer) {
+    this.renderTimer = renderTimer;
+    this.#isActive = false;
+    this.timerId = null;
+    this.time = 0;
+  }
+
+  start() {
+    if (this.#isActive) return;
+
+    this.#isActive = true;
+    this.timerId = setInterval(() => {
+      this.time += 1;
+      const timeObject = this.secondToTime(this.time);
+      console.log(timeObject);
+      this.renderTimer(timeObject);
+    }, 1000);
+  }
+
+  stop() {
+    clearInterval(this.timerId);
+    this.#isActive = false;
+    this.time = 0;
+  }
+
+  pause() {
+    clearInterval(this.timerId);
+    this.#isActive = false;
+  }
+
+  reset() {
+    this.stop();
+    this.renderTimer(this.secondToTime(0));
+  }
+
+  pad(value) {
+    return String(value).padStart(2, '0');
+  }
+
+  secondToTime(s) {
+    const hour = this.pad(Math.floor((s / (60 * 60)) % 24));
+    const min = this.pad(Math.floor((s % (60 * 60)) / 60));
+    const sec = this.pad(Math.floor(s % 60));
+    return { hour, min, sec };
+  }
+}
+
+const timer = new Timer(renderTimer);
+
+refs.startBtn.addEventListener('click', timer.start.bind(timer));
+refs.stopBtn.addEventListener('click', timer.stop.bind(timer));
+refs.resetBtn.addEventListener('click', timer.reset.bind(timer));
+refs.pauseBtn.addEventListener('click', timer.pause.bind(timer));
+
+function renderTimer({ hour, min, sec }) {
+  refs.timer.textContent = `${hour}:${min}:${sec}`;
+}
+
+//================================================================
+// function secondToStringTimer(time) {
+//   const hour = pad(Math.floor((time / (60 * 60 * 1000)) % 24));
+//   const min = pad(Math.floor(((time / 1000) % (60 * 60)) / 60));
+//   const sec = pad(Math.floor(time / 1000) % 60);
+//   return { hour, min, sec };
+// }
+
+// function pad(value) {
+//   return String(value).padStart(2, '0');
+// }
+
+// renderTimer(secondToStringTimer(423565235));
+//================================================================
+
 // class Timer {
 //   #isActive;
 
@@ -81,28 +158,3 @@ const refs = {
 //     return { hour, min, sec };
 //   }
 // }
-
-function renderTimer({ hour, min, sec }) {
-  refs.timer.textContent = `${hour}:${min}:${sec}`;
-}
-
-const timer = new Timer(renderTimer);
-
-refs.startBtn.addEventListener('click', timer.start.bind(timer));
-refs.stopBtn.addEventListener('click', timer.stop.bind(timer));
-refs.pauseBtn.addEventListener('click', timer.pause.bind(timer));
-
-//================================================================
-// function secondToStringTimer(time) {
-//   const hour = pad(Math.floor((time / (60 * 60 * 1000)) % 24));
-//   const min = pad(Math.floor(((time / 1000) % (60 * 60)) / 60));
-//   const sec = pad(Math.floor(time / 1000) % 60);
-//   return { hour, min, sec };
-// }
-
-// function pad(value) {
-//   return String(value).padStart(2, '0');
-// }
-
-// renderTimer(secondToStringTimer(423565235));
-//================================================================
