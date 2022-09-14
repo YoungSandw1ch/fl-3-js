@@ -338,3 +338,16 @@
 // console.log(checkPassword('jqueryismyjam'));
 
 //====================================================================
+
+// const date = new Date('2030-03-16');
+// const date = new Date('2030-03');
+// const date = new Date('2030');
+// const date = new Date('03/16/2030');
+// const date = new Date('2030/03/16');
+// const date = new Date('2030/3/16');
+// const date = new Date('March 16, 2030');
+// const date = new Date('March 16, 2030 14:25:00');
+// const date = new Date('2030-03-16 14:25:00');
+// const date = new Date('2030-03-16T14:25:00');
+// const date = new Date('16 March 2030');
+// console.log(date);

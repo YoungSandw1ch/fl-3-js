@@ -93,5 +93,4 @@ function saveFormDataFromRealod() {
 function removeCheckedFromRadioInputs() {
   const checkedRadioInput = refs.form.querySelector('input[checked]');
   checkedRadioInput.removeAttribute('checked');
-  // console.log(refs.form.querySelector('.radio input[checked]'));
 }
