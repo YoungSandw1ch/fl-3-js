@@ -532,8 +532,8 @@ function hmrAcceptRun(bundle, id) {
 }
 
 },{}],"fzeFT":[function(require,module,exports) {
-var _storageJs = require("./storage.js");
-console.log(_storageJs);
+// import * as storage from './storage.js';
+// console.log(storage);
 let items = [
     {
         id: "1",
@@ -568,9 +568,9 @@ const refs = {
 getItemsFromLS();
 updateLocaleStorage();
 createList(items);
-refs.list.addEventListener("change", onItemSelect);
-refs.list.addEventListener("click", onCloseBtn);
+refs.list.addEventListener("click", onListItemClick);
 refs.form.addEventListener("submit", onSubmitBtnAddItem);
+//=================== render list ======================================
 function createList(items) {
     const itemsMarkup = items.map(createItem).join("");
     refs.list.innerHTML = "";
@@ -588,17 +588,20 @@ function createItem({ name , isCheked , id  }) {
   `;
     return item;
 }
-function onItemSelect(e) {
+//================== handlers =========================================
+function onListItemClick(e) {
+    if (e.target === e.currentTarget) return;
     const listItem = e.target.closest("li");
-    const span = e.target.nextElementSibling;
-    items.map((el)=>{
-        if (el.id === listItem.id) {
-            el.isCheked = !el.isCheked;
-            span.classList.toggle("done");
-            listItem.classList.toggle("item--changeBg");
-        }
-    });
+    const id = listItem.id;
+    if (e.target.nodeName === "BUTTON") deleteItem(id);
+    if (e.target.nodeName === "LABEL" || e.target.nodeName === "INPUT") {
+        toogleItem(id);
+        const text = e.target.nextElementSibling;
+        text.classList.toggle("done");
+        listItem.classList.toggle("item--changeBg");
+    }
     updateLocaleStorage();
+    createList(items);
 }
 function onSubmitBtnAddItem(e) {
     e.preventDefault();
@@ -615,19 +618,16 @@ function onSubmitBtnAddItem(e) {
         updateLocaleStorage();
     }
 }
-function onCloseBtn(e) {
-    //если таргет именно кнопка (можна через класс getAttribute)
-    if (e.target.nodeName === "BUTTON") {
-        const listItem = e.target.closest("li");
-        //удалить этот елемент li
-        listItem.remove();
-        //удалить обьект продукта из массива
-        items.map((el, i, a)=>{
-            if (el.id === listItem.id) a.splice(i, 1);
-        });
-    }
-    updateLocaleStorage();
+//==================== toogle / delete =================================
+function deleteItem(id) {
+    items = items.filter((el)=>el.id !== id);
 }
+function toogleItem(id) {
+    items.map((el)=>{
+        if (el.id === id) el.isCheked = !el.isCheked;
+    });
+}
+//====================locale storage=====================================
 function updateLocaleStorage() {
     try {
         const itemsData = JSON.stringify(items);
@@ -645,9 +645,34 @@ function getItemsFromLS() {
     } catch (error) {
         console.log(`ОШИБКА parse ${error.message}`);
     }
-}
-
-},{"./storage.js":"j1l1C"}],"j1l1C":[function(require,module,exports) {
+} //=====old function, trash==============================================
+ // function onItemSelect(e) {
+ //   const listItem = e.target.closest('li');
+ //   const span = e.target.nextElementSibling;
+ //   items.map(el => {
+ //     if (el.id === listItem.id) {
+ //       el.isCheked = !el.isCheked;
+ //       span.classList.toggle('done');
+ //       listItem.classList.toggle('item--changeBg');
+ //     }
+ //   });
+ //   updateLocaleStorage();
+ // }
+ // function onCloseBtn(e) {
+ //   //если таргет именно кнопка (можна через класс getAttribute)
+ //   if (e.target.nodeName === 'BUTTON') {
+ //     const listItem = e.target.closest('li');
+ //     //удалить этот елемент li
+ //     listItem.remove();
+ //     //удалить обьект продукта из массива
+ //     items.map((el, i, a) => {
+ //       if (el.id === listItem.id) {
+ //         a.splice(i, 1);
+ //       }
+ //     });
+ //   }
+ //   updateLocaleStorage();
+ // }
 
 },{}]},["7Yvkq","fzeFT"], "fzeFT", "parcelRequirea42f")
 

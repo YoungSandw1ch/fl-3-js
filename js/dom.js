@@ -1,5 +1,5 @@
-import * as storage from './storage.js';
-console.log(storage);
+// import * as storage from './storage.js';
+// console.log(storage);
 
 let items = [
   { id: '1', name: 'bread', isCheked: true },
@@ -18,10 +18,10 @@ getItemsFromLS();
 updateLocaleStorage();
 createList(items);
 
-refs.list.addEventListener('change', onItemSelect);
-refs.list.addEventListener('click', onCloseBtn);
+refs.list.addEventListener('click', onListItemClick);
 refs.form.addEventListener('submit', onSubmitBtnAddItem);
 
+//=================== render list ======================================
 function createList(items) {
   const itemsMarkup = items.map(createItem).join('');
 
@@ -42,19 +42,26 @@ function createItem({ name, isCheked, id }) {
   return item;
 }
 
-function onItemSelect(e) {
-  const listItem = e.target.closest('li');
-  const span = e.target.nextElementSibling;
+//================== handlers =========================================
+function onListItemClick(e) {
+  if (e.target === e.currentTarget) return;
 
-  items.map(el => {
-    if (el.id === listItem.id) {
-      el.isCheked = !el.isCheked;
-      span.classList.toggle('done');
-      listItem.classList.toggle('item--changeBg');
-    }
-  });
+  const listItem = e.target.closest('li');
+  const id = listItem.id;
+
+  if (e.target.nodeName === 'BUTTON') {
+    deleteItem(id);
+  }
+
+  if (e.target.nodeName === 'LABEL' || e.target.nodeName === 'INPUT') {
+    toogleItem(id);
+    const text = e.target.nextElementSibling;
+    text.classList.toggle('done');
+    listItem.classList.toggle('item--changeBg');
+  }
 
   updateLocaleStorage();
+  createList(items);
 }
 
 function onSubmitBtnAddItem(e) {
@@ -71,29 +78,22 @@ function onSubmitBtnAddItem(e) {
     refs.form.reset();
 
     createList(items);
-
     updateLocaleStorage();
   }
 }
-
-function onCloseBtn(e) {
-  //если таргет именно кнопка (можна через класс getAttribute)
-  if (e.target.nodeName === 'BUTTON') {
-    const listItem = e.target.closest('li');
-    //удалить этот елемент li
-    listItem.remove();
-
-    //удалить обьект продукта из массива
-    items.map((el, i, a) => {
-      if (el.id === listItem.id) {
-        a.splice(i, 1);
-      }
-    });
-  }
-
-  updateLocaleStorage();
+//==================== toogle / delete =================================
+function deleteItem(id) {
+  items = items.filter(el => el.id !== id);
 }
 
+function toogleItem(id) {
+  items.map(el => {
+    if (el.id === id) {
+      el.isCheked = !el.isCheked;
+    }
+  });
+}
+//====================locale storage=====================================
 function updateLocaleStorage() {
   try {
     const itemsData = JSON.stringify(items);
@@ -114,3 +114,38 @@ function getItemsFromLS() {
     console.log(`ОШИБКА parse ${error.message}`);
   }
 }
+
+//=====old function, trash==============================================
+
+// function onItemSelect(e) {
+//   const listItem = e.target.closest('li');
+//   const span = e.target.nextElementSibling;
+
+//   items.map(el => {
+//     if (el.id === listItem.id) {
+//       el.isCheked = !el.isCheked;
+//       span.classList.toggle('done');
+//       listItem.classList.toggle('item--changeBg');
+//     }
+//   });
+
+//   updateLocaleStorage();
+// }
+
+// function onCloseBtn(e) {
+//   //если таргет именно кнопка (можна через класс getAttribute)
+//   if (e.target.nodeName === 'BUTTON') {
+//     const listItem = e.target.closest('li');
+//     //удалить этот елемент li
+//     listItem.remove();
+
+//     //удалить обьект продукта из массива
+//     items.map((el, i, a) => {
+//       if (el.id === listItem.id) {
+//         a.splice(i, 1);
+//       }
+//     });
+//   }
+
+//   updateLocaleStorage();
+// }
