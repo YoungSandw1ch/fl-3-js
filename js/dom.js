@@ -16,13 +16,13 @@ const refs = {
 
 getItemsFromLS();
 updateLocaleStorage();
-createList();
+renderList();
 
 refs.list.addEventListener('click', onListItemClick);
-refs.form.addEventListener('submit', onSubmitBtnAddItem);
+refs.form.addEventListener('submit', onAddBtnClick);
 
 //=================== render list ======================================
-function createList() {
+function renderList() {
   const itemsMarkup = items.map(createItem).join('');
 
   refs.list.innerHTML = '';
@@ -61,10 +61,10 @@ function onListItemClick(e) {
   }
 
   updateLocaleStorage();
-  createList();
+  renderList();
 }
 
-function onSubmitBtnAddItem(e) {
+function onAddBtnClick(e) {
   e.preventDefault();
   const inputRef = document.querySelector('[name="text"]');
   if (inputRef.value) {
@@ -77,7 +77,7 @@ function onSubmitBtnAddItem(e) {
     items.push(item);
     refs.form.reset();
 
-    createList();
+    renderList();
     updateLocaleStorage();
   }
 }
@@ -95,17 +95,11 @@ function toogleItem(id) {
 }
 //====================locale storage=====================================
 function updateLocaleStorage() {
-  try {
-    const itemsData = JSON.stringify(items);
-    localStorage.setItem('noteData', itemsData);
-  } catch (error) {
-    console.log(`ОШИБКА stringify ${error.message}`);
-  }
+  localStorage.setItem('noteData', JSON.stringify(items));
 }
 
 function getItemsFromLS() {
   const itemsData = localStorage.getItem('noteData');
-  // console.log(itemsData);
   if (!itemsData) return;
 
   try {
