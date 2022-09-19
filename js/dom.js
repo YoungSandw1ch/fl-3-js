@@ -1,7 +1,7 @@
 import * as storage from './storage.js';
 console.log(storage);
 
-const items = [
+let items = [
   { id: '1', name: 'bread', isCheked: true },
   { id: '2', name: 'potato', isCheked: false },
   { id: '3', name: 'tomato', isCheked: true },
@@ -14,6 +14,8 @@ const refs = {
   form: document.querySelector('.form'),
 };
 
+getItemsFromLS();
+updateLocaleStorage();
 createList(items);
 
 refs.list.addEventListener('change', onItemSelect);
@@ -51,6 +53,8 @@ function onItemSelect(e) {
       listItem.classList.toggle('item--changeBg');
     }
   });
+
+  updateLocaleStorage();
 }
 
 function onSubmitBtnAddItem(e) {
@@ -67,6 +71,8 @@ function onSubmitBtnAddItem(e) {
     refs.form.reset();
 
     createList(items);
+
+    updateLocaleStorage();
   }
 }
 
@@ -83,5 +89,28 @@ function onCloseBtn(e) {
         a.splice(i, 1);
       }
     });
+  }
+
+  updateLocaleStorage();
+}
+
+function updateLocaleStorage() {
+  try {
+    const itemsData = JSON.stringify(items);
+    localStorage.setItem('noteData', itemsData);
+  } catch (error) {
+    console.log(`ОШИБКА stringify ${error.message}`);
+  }
+}
+
+function getItemsFromLS() {
+  const itemsData = localStorage.getItem('noteData');
+  // console.log(itemsData);
+  if (!itemsData) return;
+
+  try {
+    items = JSON.parse(itemsData);
+  } catch (error) {
+    console.log(`ОШИБКА parse ${error.message}`);
   }
 }

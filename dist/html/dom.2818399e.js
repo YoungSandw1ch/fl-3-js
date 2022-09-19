@@ -534,7 +534,7 @@ function hmrAcceptRun(bundle, id) {
 },{}],"fzeFT":[function(require,module,exports) {
 var _storageJs = require("./storage.js");
 console.log(_storageJs);
-const items = [
+let items = [
     {
         id: "1",
         name: "bread",
@@ -565,6 +565,8 @@ const refs = {
     list: document.querySelector("ol"),
     form: document.querySelector(".form")
 };
+getItemsFromLS();
+updateLocaleStorage();
 createList(items);
 refs.list.addEventListener("change", onItemSelect);
 refs.list.addEventListener("click", onCloseBtn);
@@ -596,6 +598,7 @@ function onItemSelect(e) {
             listItem.classList.toggle("item--changeBg");
         }
     });
+    updateLocaleStorage();
 }
 function onSubmitBtnAddItem(e) {
     e.preventDefault();
@@ -609,6 +612,7 @@ function onSubmitBtnAddItem(e) {
         items.push(item);
         refs.form.reset();
         createList(items);
+        updateLocaleStorage();
     }
 }
 function onCloseBtn(e) {
@@ -621,6 +625,25 @@ function onCloseBtn(e) {
         items.map((el, i, a)=>{
             if (el.id === listItem.id) a.splice(i, 1);
         });
+    }
+    updateLocaleStorage();
+}
+function updateLocaleStorage() {
+    try {
+        const itemsData = JSON.stringify(items);
+        localStorage.setItem("noteData", itemsData);
+    } catch (error) {
+        console.log(`ОШИБКА stringify ${error.message}`);
+    }
+}
+function getItemsFromLS() {
+    const itemsData = localStorage.getItem("noteData");
+    // console.log(itemsData);
+    if (!itemsData) return;
+    try {
+        items = JSON.parse(itemsData);
+    } catch (error) {
+        console.log(`ОШИБКА parse ${error.message}`);
     }
 }
 
