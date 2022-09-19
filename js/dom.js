@@ -16,13 +16,13 @@ const refs = {
 
 getItemsFromLS();
 updateLocaleStorage();
-createList(items);
+createList();
 
 refs.list.addEventListener('click', onListItemClick);
 refs.form.addEventListener('submit', onSubmitBtnAddItem);
 
 //=================== render list ======================================
-function createList(items) {
+function createList() {
   const itemsMarkup = items.map(createItem).join('');
 
   refs.list.innerHTML = '';
@@ -61,7 +61,7 @@ function onListItemClick(e) {
   }
 
   updateLocaleStorage();
-  createList(items);
+  createList();
 }
 
 function onSubmitBtnAddItem(e) {
@@ -77,7 +77,7 @@ function onSubmitBtnAddItem(e) {
     items.push(item);
     refs.form.reset();
 
-    createList(items);
+    createList();
     updateLocaleStorage();
   }
 }

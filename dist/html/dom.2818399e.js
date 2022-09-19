@@ -567,11 +567,11 @@ const refs = {
 };
 getItemsFromLS();
 updateLocaleStorage();
-createList(items);
+createList();
 refs.list.addEventListener("click", onListItemClick);
 refs.form.addEventListener("submit", onSubmitBtnAddItem);
 //=================== render list ======================================
-function createList(items) {
+function createList() {
     const itemsMarkup = items.map(createItem).join("");
     refs.list.innerHTML = "";
     refs.list.insertAdjacentHTML("afterbegin", itemsMarkup);
@@ -601,7 +601,7 @@ function onListItemClick(e) {
         listItem.classList.toggle("item--changeBg");
     }
     updateLocaleStorage();
-    createList(items);
+    createList();
 }
 function onSubmitBtnAddItem(e) {
     e.preventDefault();
@@ -614,7 +614,7 @@ function onSubmitBtnAddItem(e) {
         };
         items.push(item);
         refs.form.reset();
-        createList(items);
+        createList();
         updateLocaleStorage();
     }
 }
