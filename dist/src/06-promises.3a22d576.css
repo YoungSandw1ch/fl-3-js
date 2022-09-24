@@ -122,10 +122,21 @@
 }
 
 .inform-window {
-  height: 80px;
+  min-height: 80px;
   border: 2px solid #6b492f;
   border-radius: 15px;
   margin-bottom: 20px;
+  padding: 10px 20px;
+  font-size: 20px;
+  font-style: italic;
+}
+
+.inform-window__text:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.inform-window__text--winner {
+  color: #228b22;
 }
 
 table caption {

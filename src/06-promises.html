@@ -9,7 +9,6 @@
   <!-- CSS only -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-  <link rel="stylesheet" href="./css/promises.css">
 </head>
 
 <body>
@@ -18,35 +17,35 @@
   <div class="wrapper">
     <section class="hippodrome">
       <h1 class="hippodrome__title hippodrome__title--bottom-indent">Добро пожаловать в ипподром "На все деньги"</h1>
-      <buttton class="hippodrome__btn" type="button" data-start-btn>Начать забег</buttton>
+      <buttton class="hippodrome__btn" type="button" data-start-btn disabled>Начать забег</buttton>
 
       <h2 class="hippodrome__subtitle">Выберите лошадь:</h2>
 
       <ul class="horses">
         <li class="horses__item">
-          <input class="horses__input" name="horse" id="cesar" type="radio">
-          <label class="horses__label" for="cesar">
+          <input class="horses__input" name="horse" id="Cesar" type="radio">
+          <label class="horses__label" for="Cesar">
             <span class="horses__text">Цезарь</span>
             <img class="horses__img" src="./images/cesar-horse-d.jpeg" alt="cesar">
           </label>
         </li>
         <li class="horses__item">
-          <input class="horses__input" name="horse" id="pegas" type="radio">
-          <label class="horses__label" for="pegas">
+          <input class="horses__input" name="horse" id="Pegas" type="radio">
+          <label class="horses__label" for="Pegas">
             <span class="horses__text">pegas</span>
             <img class="horses__img" src="./images/pegas-horse-d.jpeg" alt="pegas">
           </label>
         </li>
         <li class="horses__item">
-          <input class="horses__input" name="horse" id="pony" type="radio">
-          <label class="horses__label" for="pony">
+          <input class="horses__input" name="horse" id="Pony" type="radio">
+          <label class="horses__label" for="Pony">
             <span class="horses__text">pony</span>
             <img class="horses__img" src="./images/pony-horse-d.jpeg" alt="pony">
           </label>
         </li>
         <li class="horses__item">
-          <input class="horses__input" name="horse" id="space" type="radio">
-          <label class="horses__label" for="space">
+          <input class="horses__input" name="horse" id="Space" type="radio">
+          <label class="horses__label" for="Space">
             <span class="horses__text">space</span>
             <img class="horses__img" src="./images/space-horse-d.jpeg" alt="space">
           </label>
@@ -55,7 +54,8 @@
 
       <h2 class="inform-window__title hippodrome__subtitle">Информация о забеге:</h2>
       <div class="inform-window">
-        <p class="inform-window__text"></p>
+        <p class="inform-window__text" data-info-start>Выберите лошадь и делайте ставки до начала забега</p>
+        <p class="inform-window__text inform-window__text--winner" data-info-winner></p>
       </div>
 
       <h2 class="inform-window__title hippodrome__subtitle">Таблица лидеров:</h2>
@@ -68,6 +68,7 @@
           </tr>
         </thead>
         <tbody></tbody>
+      </table>
     </section>
   </div>
 

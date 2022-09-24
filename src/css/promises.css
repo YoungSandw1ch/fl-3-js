@@ -138,11 +138,22 @@
   margin-bottom: 20px;
   border: 2px solid rgb(107, 73, 47);
   border-radius: 15px;
-  height: 80px;
+  min-height: 80px;
+
+  padding: 10px 20px;
+
+  font-size: 20px;
+  font-style: italic;
 }
 
-.inform-window__text {
+.inform-window__text:not(:last-child) {
+  margin-bottom: 10px;
 }
+
+.inform-window__text--winner {
+  color: forestgreen;
+}
+
 .notification {
 }
 .notification__text {
