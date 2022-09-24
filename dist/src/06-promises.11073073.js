@@ -553,6 +553,7 @@ let horseName = null;
 refs.startBtn.addEventListener("click", onStartRace);
 refs.horsesList.addEventListener("change", onRadioPush);
 function onStartRace() {
+    if (refs.startBtn.hasAttribute("disabled")) return;
     raceCounter += 1;
     const promises = horses.map(run);
     updateWinnerInfo("");
@@ -586,7 +587,7 @@ function winOrNot(horse) {
     } else {
         console.log("you suck");
         refs.modalTiile.textContent = "СОБОЛЕЗНУЕМ";
-        refs.modalBody.textContent = `${horseName} проигрывает забег`;
+        refs.modalBody.textContent = `${horseName} проигрывает забег, удача за ${horse}`;
     }
     modal.show();
 }
