@@ -351,3 +351,119 @@
 // const date = new Date('2030-03-16T14:25:00');
 // const date = new Date('16 March 2030');
 // console.log(date);
+//=============================promises========================
+// const isSuccess = true;
+
+// const promise = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     if (isSuccess) {
+//       resolve('Success! Value passed to resolve function');
+//     } else {
+//       reject('Error! Error passed to reject function');
+//     }
+//   }, 2000);
+// });
+
+// console.log(promise);
+//========================================================================
+
+// // Change value of isSuccess variable to call resolve or reject
+// const isSuccess = true;
+
+// const promise = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     if (isSuccess) {
+//       resolve('Success! Value passed to resolve function');
+//     } else {
+//       reject('Error! Error passed to reject function');
+//     }
+//   }, 2000);
+// });
+
+// // Will run first
+// console.log('Before promise.then()');
+
+// // Registering promise callbacks
+// promise.then(
+//   // onResolve will run third or not at all
+//   value => {
+//     console.log('onResolve call inside promise.then()');
+//     console.log(value); // "Success! Value passed to resolve function"
+//   },
+//   // onReject will run third or not at all
+//   error => {
+//     console.log('onReject call inside promise.then()');
+//     console.log(error); // "Error! Error passed to reject function"
+//   },
+// );
+
+// // Will run second
+// console.log('After promise.then()');
+
+//========================================================================
+
+// // Change value of isSuccess variable to call resolve or reject
+// const isSuccess = true;
+
+// const promise = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     if (isSuccess) {
+//       resolve('Success! Value passed to resolve function');
+//     } else {
+//       reject('Error! Error passed to reject function');
+//     }
+//   }, 2000);
+// });
+
+// promise
+//   .then(value => console.log(value)) // "Success! Value passed to resolve function"
+//   .catch(error => console.log(error)) // "Error! Error passed to reject function"
+//   .finally(() => console.log('Promise settled')); // "Promise settled"
+//========================================================================
+// const fetchUserFromServer = (username, onSuccess, onError) => {
+//   console.log(`Fetching data for ${username}`);
+
+//   setTimeout(() => {
+//     // Change value of isSuccess variable to simulate request status
+//     const isSuccess = false;
+
+//     if (isSuccess) {
+//       onSuccess(`success value ${username}`);
+//     } else {
+//       onError('error');
+//     }
+//   }, 2000);
+// };
+
+// const onFetchSuccess = user => {
+//   console.log(user);
+// };
+
+// const onFetchError = error => {
+//   console.error(error);
+// };
+
+// fetchUserFromServer('Mango', onFetchSuccess, onFetchError);
+
+//========================================================================
+
+const fetchUserFromServer = username => {
+  return new Promise((resolve, reject) => {
+    console.log(`Fetching data for ${username}`);
+
+    setTimeout(() => {
+      // Change value of isSuccess variable to simulate request status
+      const isSuccess = true;
+
+      if (isSuccess) {
+        resolve(`success value ${username}`);
+      } else {
+        reject('error');
+      }
+    }, 2000);
+  });
+};
+
+fetchUserFromServer('Mango')
+  .then(user => console.log(user))
+  .catch(error => console.error(error));
