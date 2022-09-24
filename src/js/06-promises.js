@@ -21,16 +21,7 @@ let horseName = null;
 refs.startBtn.addEventListener('click', onStartRace);
 refs.horsesList.addEventListener('change', onRadioPush);
 
-function onStartRace() {
-  if (refs.startBtn.hasAttribute('disabled')) return;
-  raceCounter += 1;
-  const promises = horses.map(run);
-
-  updateWinnerInfo('');
-  updateStartInfo('Забег начался! Ставки не принимаются');
-  findAndRenderWinner(promises);
-}
-
+//=====================event listener callbacks==========================
 function onRadioPush(e) {
   // console.log(e.target);
   horseName = e.target.id;
@@ -38,27 +29,55 @@ function onRadioPush(e) {
   // console.log(horseName);
 }
 
+function onStartRace() {
+  if (refs.startBtn.hasAttribute('disabled')) return;
+
+  raceCounter += 1;
+  const promises = horses.map(run);
+
+  updateWinnerInfo('');
+  updateStartInfo('Забег начался! Ставки не принимаются');
+  findAndRenderWinner(promises);
+}
+//=====================game logic engine==================================
 function findAndRenderWinner(promises) {
   Promise.race(promises).then(({ horse, time }) => {
     updateWinnerInfo(`Первым финиширует ${horse} за время ${time}`);
     const tableMarkup = createTableBodyMarkup({ horse, time, raceCounter });
     renderTable(tableMarkup);
     updateStartInfo('Выберите лошадь и делайте ставки до начала забега');
-    winOrNot(horse);
+    showModal(horse);
   });
 }
 
-function winOrNot(horse) {
+function run(horse) {
+  return new Promise(resolve => {
+    const time = getRandomTime(2000, 4000);
+
+    setTimeout(() => {
+      resolve({ horse, time });
+    }, time);
+  });
+}
+//=====================show result of game================================
+function showModal(horse) {
   if (horseName === horse) {
     console.log('You win');
-    refs.modalTiile.textContent = 'ПОЗДРАВЛЯЕМ';
-    refs.modalBody.textContent = `${horse} приносит Вам побегу в этом забеге`;
+    updateModal('ПОЗДРАВЛЯЕМ', `${horse} приносит Вам побегу в этом забеге`);
   } else {
     console.log('you suck');
-    refs.modalTiile.textContent = 'СОБОЛЕЗНУЕМ';
-    refs.modalBody.textContent = `${horseName} проигрывает забег, удача за ${horse}`;
+    updateModal(
+      'СОБОЛЕЗНУЕМ',
+      `${horseName} проигрывает забег, удача за ${horse}`,
+    );
   }
+
   modal.show();
+}
+//=====================update interface====================================
+function updateModal(result, message) {
+  refs.modalTiile.textContent = result;
+  refs.modalBody.textContent = message;
 }
 
 function updateStartInfo(message) {
@@ -72,7 +91,7 @@ function updateWinnerInfo(message) {
 function renderTable(markup) {
   refs.tableBody.insertAdjacentHTML('beforeend', markup);
 }
-
+//====================create markup========================================
 function createTableBodyMarkup({ horse, time, raceCounter }) {
   return `
   <tr>
@@ -82,16 +101,7 @@ function createTableBodyMarkup({ horse, time, raceCounter }) {
   </tr>`;
 }
 
-function run(horse) {
-  return new Promise(resolve => {
-    const time = getRandomTime(2000, 4000);
-
-    setTimeout(() => {
-      resolve({ horse, time });
-    }, time);
-  });
-}
-
+//====================common function======================================
 function getRandomTime(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
