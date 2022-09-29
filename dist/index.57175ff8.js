@@ -612,23 +612,64 @@ function hmrAcceptRun(bundle, id) {
 //   console.log('done');
 // }
 //==================make dish================
-const makeDish = (dishName)=>{
-    return new Promise((resolve, reject)=>{
-        const DELAY = 1000;
-        setTimeout(()=>{
-            const passed = Math.random() > 0.5;
-            if (passed) resolve(`✅ ваше заказ принят ${dishName} готовится`);
-            reject(`❌ извините ${dishName} закончился`);
-        }, DELAY);
-    });
-};
-makeDish("чебурек").then(orderSucces).catch(orderFailure);
-function orderSucces(succes) {
-    console.log("succes order: ", succes);
+// const makeDish = dishName => {
+//   return new Promise((resolve, reject) => {
+//     const DELAY = 1000;
+//     setTimeout(() => {
+//       const passed = Math.random() > 0.5;
+//       if (passed) {
+//         resolve(`✅ ваше заказ принят ${dishName} готовится`);
+//       }
+//       reject(`❌ извините ${dishName} закончился`);
+//     }, DELAY);
+//   });
+// };
+// makeDish('чебурек').then(orderSucces).catch(orderFailure);
+// function orderSucces(succes) {
+//   console.log('succes order: ', succes);
+// }
+// function orderFailure(error) {
+//   console.log('sorry: ', error);
+// }
+//===========================================
+// // const cooking = dishName =>
+// //   Promise.resolve(`✅ ваше заказ принят ${dishName} готовится`);
+// cooking('pizza').then(ordered);
+// function cooking(dishName) {
+//   return Promise.resolve(`✅ ваше заказ принят ${dishName} готовится`);
+// }
+// function ordered(value) {
+//   console.log('Great to meet you');
+//   console.log(value);
+// }
+//================pokemon==================
+//STEP 1
+// fetch('https://pokeapi.co/api/v2/pokemon/2')
+//   .then(pokemon => console.log(pokemon))
+//   .catch(error => console.error());
+//STEP 2
+// function getPokemonById(id) {
+//   fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
+//     .then(result => result.json())
+//     .then(pokemon => console.log(pokemon))
+//     .catch(error => console.error());
+// }
+// getPokemonById(5);
+//STEP 3
+getPokemonById(5).then(fetchSucces).catch(fetchError);
+getPokemonById(10).then(fetchSucces).catch(fetchError);
+getPokemonById(19).then(fetchSucces).catch(fetchError);
+function getPokemonById(id) {
+    return fetch(`https://pokeapi.co/api/v2/pokemon/${id}`).then((result)=>result.json());
 }
-function orderFailure(error) {
-    console.log("sorry: ", error);
-} //===========================================
+function fetchSucces(data) {
+    console.log(`here you pokemon ${data.name.toUpperCase()}`);
+    console.log(data);
+}
+function fetchError(error) {
+    console.log("We not now nothing about this pokemon");
+    console.log(error);
+} // console.log(getPokemonById(5));
 
 },{}]},["1Avqz","7tpxz"], "7tpxz", "parcelRequirea42f")
 
