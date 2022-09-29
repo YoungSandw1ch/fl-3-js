@@ -158,23 +158,59 @@
 
 //STEP 3
 
-getPokemonById(5).then(fetchSucces).catch(fetchError);
-getPokemonById(10).then(fetchSucces).catch(fetchError);
-getPokemonById(19).then(fetchSucces).catch(fetchError);
+// getPokemonById(5).then(fetchSucces).catch(fetchError);
+// getPokemonById(10).then(fetchSucces).catch(fetchError);
+// getPokemonById(19).then(fetchSucces).catch(fetchError);
 
-function getPokemonById(id) {
-  return fetch(`https://pokeapi.co/api/v2/pokemon/${id}`).then(result =>
-    result.json(),
-  );
-}
+// function getPokemonById(id) {
+//   return fetch(`https://pokeapi.co/api/v2/pokemon/${id}`).then(result =>
+//     result.json(),
+//   );
+// }
 
-function fetchSucces(data) {
-  console.log(`here you pokemon ${data.name.toUpperCase()}`);
-  console.log(data);
-}
+// function fetchSucces(data) {
+//   console.log(`here you pokemon ${data.name.toUpperCase()}`);
+//   console.log(data);
+// }
 
-function fetchError(error) {
-  console.log('We not now nothing about this pokemon');
-  console.log(error);
-}
-// console.log(getPokemonById(5));
+// function fetchError(error) {
+//   console.log('We not now nothing about this pokemon');
+//   console.log(error);
+// }
+// // console.log(getPokemonById(5));
+
+//STEP 4
+
+// getAllPokemonByUrl('https://pokeapi.co/api/v2/pokemon/')
+//   .then(logAllPokemonObject)
+//   .then(data => findPokemonByName(data, 'squirtle'))
+//   .catch(pokemonNotFind);
+
+// function getAllPokemonByUrl(url) {
+//   return fetch(url).then(data => data.json());
+// }
+
+// function logAllPokemonObject(obj) {
+//   console.log(obj);
+//   return obj;
+// }
+
+// function findPokemonByName(data, pokemonName) {
+//   const searchedPokemon = data.results.find(el => el.name === pokemonName);
+
+//   if (!searchedPokemon) {
+//     throw Error('We not now nothing about this pokemon');
+//   }
+
+//   console.log(searchedPokemon);
+//   return searchedPokemon;
+// }
+
+// function pokemonNotFind(error) {
+//   console.log(error);
+// }
+
+// // getAllPokemonByUrl('https://pokeapi.co/api/v2/pokemon/').then(obj => {
+// //   console.log(obj.results);
+// //   console.log(obj.results.find(el => el.name === 'squirtle'));
+// // });
