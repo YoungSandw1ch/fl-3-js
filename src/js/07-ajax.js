@@ -26,6 +26,8 @@ function createUserMarkup(user) {
   const markup = [];
 
   for (let [key, value] of Object.entries(user)) {
+    //if need to ignore id
+    if (key === 'id') continue;
     //or write condition, when value is object - skip this value
     value = value?.name || value;
     if (value.city && value.street && value.suite) {
