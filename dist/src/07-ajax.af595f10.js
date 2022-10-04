@@ -541,7 +541,7 @@ refs.fetchBtn.addEventListener("click", ()=>{
 });
 function onUsersFetch() {
     return fetch("https://jsonplaceholder.typicode.com/users").then((r)=>{
-        if (!r.status) throw new Error(r.status);
+        if (!r.ok) throw new Error(r.status);
         return r.json();
     });
 }
@@ -565,19 +565,36 @@ function renderList(markup) {
 }
 function toCapitalize(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
-} ///==============not used function================
- // function flattedUserAdressAndCompany(user) {
- //   const userObj = {};
- //   for (let [key, value] of Object.entries(user)) {
- //     value = value?.name || value;
- //     if (value.city && value.street && value.suite) {
- //       value = `${value?.city}, ${value?.street}, ${value?.suite}`;
- //     }
- //     userObj[key] = value;
- //   }
- //   console.log(userObj);
- //   return userObj;
- // }
+}
+///==============not used function================
+// function flattedUserAdressAndCompany(user) {
+//   const userObj = {};
+//   for (let [key, value] of Object.entries(user)) {
+//     value = value?.name || value;
+//     if (value.city && value.street && value.suite) {
+//       value = `${value?.city}, ${value?.street}, ${value?.suite}`;
+//     }
+//     userObj[key] = value;
+//   }
+//   console.log(userObj);
+//   return userObj;
+// }
+//=====================URLSearchParams=================
+// const searchParams = new URLSearchParams({
+//   _limit: 7,
+//   _sort: 'name',
+// });
+// console.log(searchParams);
+// console.log(searchParams.toString());
+// const url = `https://jsonplaceholder.typicode.com/users?${searchParams}`;
+// console.log(url);
+//=======================================================
+const poke = fetch("https://pokeapi.co/api/v2/pokemon/1");
+poke.then((r)=>r.json()).then((pokemon)=>{
+    console.log(pokemon);
+}).catch((error)=>{
+    console.log(error);
+});
 
 },{}]},["etfKv","bazIw"], "bazIw", "parcelRequirea42f")
 

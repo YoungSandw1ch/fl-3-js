@@ -12,7 +12,7 @@ refs.fetchBtn.addEventListener('click', () => {
 
 function onUsersFetch() {
   return fetch('https://jsonplaceholder.typicode.com/users').then(r => {
-    if (!r.status) throw new Error(r.status);
+    if (!r.ok) throw new Error(r.status);
 
     return r.json();
   });
@@ -63,3 +63,30 @@ function toCapitalize(string) {
 //   console.log(userObj);
 //   return userObj;
 // }
+
+//=====================URLSearchParams=================
+
+// const searchParams = new URLSearchParams({
+//   _limit: 7,
+//   _sort: 'name',
+// });
+
+// console.log(searchParams);
+// console.log(searchParams.toString());
+
+// const url = `https://jsonplaceholder.typicode.com/users?${searchParams}`;
+
+// console.log(url);
+
+//=======================================================
+
+const poke = fetch('https://pokeapi.co/api/v2/pokemon/1');
+
+poke
+  .then(r => r.json())
+  .then(pokemon => {
+    console.log(pokemon);
+  })
+  .catch(error => {
+    console.log(error);
+  });
