@@ -14,5 +14,14 @@ export function createTodo(data) {
   }).then(r => r.json());
 }
 
-export function deleteTodo() {}
-export function updateTodo() {}
+export function deleteTodo(id) {
+  return fetch(`${URL}${id}`, {
+    method: 'DELETE',
+  });
+}
+
+export function updateTodo(id) {
+  return fetch(`${URL}${id}`, {
+    method: 'PUT',
+  });
+}

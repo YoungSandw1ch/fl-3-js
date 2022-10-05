@@ -28,9 +28,9 @@ function renderTodos() {
   refs.list.insertAdjacentHTML('afterbegin', itemsMarkup);
 }
 
-function createItemMarkup({ name, isCheked }) {
+function createItemMarkup({ name, isCheked, id }) {
   return `
-  <li class='item ${isCheked ? 'item--changeBg' : ''}'>
+  <li class='item ${isCheked ? 'item--changeBg' : ''}' id='${id}'>
     <label class='label'>
       <input type="checkbox" ${isCheked ? 'checked' : ''}>
       <span class='list__text ${isCheked ? 'done' : ''}'>${name}</span>
@@ -59,18 +59,18 @@ function onListItemClick(e) {
   const id = listItem.id;
 
   if (e.target.nodeName === 'BUTTON') {
-    deleteItem(id);
+    showLoader();
+    deleteTodo(id).then(deleteItem(id)).then(renderTodos).finally(hideLoader);
   }
 
   if (e.target.nodeName === 'LABEL' || e.target.nodeName === 'INPUT') {
-    toogleItem(id);
+    updateTodo(id).then(toogleItem(id));
     const text = e.target.nextElementSibling;
     text.classList.toggle('done');
     listItem.classList.toggle('item--changeBg');
   }
 
-  updateLocaleStorage();
-  renderTodos();
+  // renderTodos();
 }
 
 function onSubmitForm(e) {

@@ -548,9 +548,9 @@ function renderTodos() {
     refs.list.innerHTML = "";
     refs.list.insertAdjacentHTML("afterbegin", itemsMarkup);
 }
-function createItemMarkup({ name , isCheked  }) {
+function createItemMarkup({ name , isCheked , id  }) {
     return `
-  <li class='item ${isCheked ? "item--changeBg" : ""}'>
+  <li class='item ${isCheked ? "item--changeBg" : ""}' id='${id}'>
     <label class='label'>
       <input type="checkbox" ${isCheked ? "checked" : ""}>
       <span class='list__text ${isCheked ? "done" : ""}'>${name}</span>
@@ -573,15 +573,17 @@ function onListItemClick(e) {
     if (e.target === e.currentTarget) return;
     const listItem = e.target.closest("li");
     const id = listItem.id;
-    if (e.target.nodeName === "BUTTON") deleteItem(id);
+    if (e.target.nodeName === "BUTTON") {
+        showLoader();
+        (0, _08ApiTodosJs.deleteTodo)(id).then(deleteItem(id)).then(renderTodos).finally(hideLoader);
+    }
     if (e.target.nodeName === "LABEL" || e.target.nodeName === "INPUT") {
-        toogleItem(id);
+        (0, _08ApiTodosJs.updateTodo)(id).then(toogleItem(id));
         const text = e.target.nextElementSibling;
         text.classList.toggle("done");
         listItem.classList.toggle("item--changeBg");
     }
-    updateLocaleStorage();
-    renderTodos();
+// renderTodos();
 }
 function onSubmitForm(e) {
     e.preventDefault();
@@ -649,8 +651,16 @@ function createTodo(data) {
         body: JSON.stringify(data)
     }).then((r)=>r.json());
 }
-function deleteTodo() {}
-function updateTodo() {}
+function deleteTodo(id) {
+    return fetch(`${URL}${id}`, {
+        method: "DELETE"
+    });
+}
+function updateTodo(id) {
+    return fetch(`${URL}${id}`, {
+        method: "PUT"
+    });
+}
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
