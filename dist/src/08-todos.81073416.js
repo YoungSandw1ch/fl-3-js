@@ -142,14 +142,14 @@
       this[globalName] = mainExports;
     }
   }
-})({"acMFB":[function(require,module,exports) {
+})({"056zo":[function(require,module,exports) {
 "use strict";
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
-module.bundle.HMR_BUNDLE_ID = "69d0179ddaf67777";
+module.bundle.HMR_BUNDLE_ID = "0980491081073416";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, chrome, browser, globalThis, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
   HMRAsset,
@@ -531,8 +531,158 @@ function hmrAcceptRun(bundle, id) {
     acceptedAssets[id] = true;
 }
 
-},{}],"hFD1l":[function(require,module,exports) {
+},{}],"kOLlJ":[function(require,module,exports) {
+var _08ApiTodosJs = require("./08-api-todos.js");
+let items = [];
+const refs = {
+    list: document.querySelector(".list"),
+    form: document.querySelector(".form")
+};
+getItemsFromLS();
+updateLocaleStorage();
+renderList();
+refs.list.addEventListener("click", onListItemClick);
+refs.form.addEventListener("submit", onSubmitForm);
+//=================== render list ======================================
+function renderList() {
+    const itemsMarkup = items.map(createItem).join("");
+    refs.list.innerHTML = "";
+    refs.list.insertAdjacentHTML("afterbegin", itemsMarkup);
+}
+function createItem({ name , isCheked , id  }) {
+    const item = `
+  <li class='item ${isCheked ? "item--changeBg" : ""}' id='${id}'>
+    <label class='label'>
+      <input type="checkbox" ${isCheked ? "checked" : ""}>
+      <span class='list__text ${isCheked ? "done" : ""}'>${name}</span>
+    </label>
+    <button class='close'>x</button>
+  </li>
+  `;
+    return item;
+}
+//================== handlers =========================================
+function onListItemClick(e) {
+    if (e.target === e.currentTarget) return;
+    const listItem = e.target.closest("li");
+    const id = listItem.id;
+    if (e.target.nodeName === "BUTTON") deleteItem(id);
+    if (e.target.nodeName === "LABEL" || e.target.nodeName === "INPUT") {
+        toogleItem(id);
+        const text = e.target.nextElementSibling;
+        text.classList.toggle("done");
+        listItem.classList.toggle("item--changeBg");
+    }
+    updateLocaleStorage();
+    renderList();
+}
+function onSubmitForm(e) {
+    e.preventDefault();
+    const inputRef = document.querySelector('[name="text"]');
+    if (inputRef.value) {
+        const item = {
+            id: Date.now().toString(),
+            name: inputRef.value,
+            isCheked: false
+        };
+        items.push(item);
+        refs.form.reset();
+        renderList();
+        updateLocaleStorage();
+    }
+}
+//==================== toogle / delete =================================
+function deleteItem(id) {
+    items = items.filter((el)=>el.id !== id);
+}
+function toogleItem(id) {
+    items.map((el)=>{
+        if (el.id === id) el.isCheked = !el.isCheked;
+    });
+}
+//====================locale storage=====================================
+function updateLocaleStorage() {
+    localStorage.setItem("noteData", JSON.stringify(items));
+}
+function getItemsFromLS() {
+    const itemsData = localStorage.getItem("noteData");
+    if (!itemsData) return;
+    try {
+        items = JSON.parse(itemsData);
+    } catch (error) {
+        console.log(`ОШИБКА parse ${error.message}`);
+    }
+} //=====old function, trash==============================================
+ // function onItemSelect(e) {
+ //   const listItem = e.target.closest('li');
+ //   const span = e.target.nextElementSibling;
+ //   items.map(el => {
+ //     if (el.id === listItem.id) {
+ //       el.isCheked = !el.isCheked;
+ //       span.classList.toggle('done');
+ //       listItem.classList.toggle('item--changeBg');
+ //     }
+ //   });
+ //   updateLocaleStorage();
+ // }
+ // function onCloseBtn(e) {
+ //   //если таргет именно кнопка (можна через класс getAttribute)
+ //   if (e.target.nodeName === 'BUTTON') {
+ //     const listItem = e.target.closest('li');
+ //     //удалить этот елемент li
+ //     listItem.remove();
+ //     //удалить обьект продукта из массива
+ //     items.map((el, i, a) => {
+ //       if (el.id === listItem.id) {
+ //         a.splice(i, 1);
+ //       }
+ //     });
+ //   }
+ //   updateLocaleStorage();
+ // }
 
-},{}]},["acMFB","hFD1l"], "hFD1l", "parcelRequirea42f")
+},{"./08-api-todos.js":"12e13"}],"12e13":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "fetchTodos", ()=>fetchTodos);
+parcelHelpers.export(exports, "createTodo", ()=>createTodo);
+parcelHelpers.export(exports, "deleteTodo", ()=>deleteTodo);
+parcelHelpers.export(exports, "updateTodo", ()=>updateTodo);
+function fetchTodos() {}
+function createTodo() {}
+function deleteTodo() {}
+function updateTodo() {}
 
-//# sourceMappingURL=06-promises.daf67777.js.map
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}]},["056zo","kOLlJ"], "kOLlJ", "parcelRequirea42f")
+
+//# sourceMappingURL=08-todos.81073416.js.map

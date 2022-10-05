@@ -1,16 +1,16 @@
-// import * as storage from './storage.js';
-// console.log(storage);
+import {
+  fetchTodos,
+  updateTodo,
+  deleteTodo,
+  createTodo,
+} from './08-api-todos.js';
 
 let items = [
-  { id: '1', name: 'bread', isCheked: true },
-  { id: '2', name: 'potato', isCheked: false },
-  { id: '3', name: 'tomato', isCheked: true },
-  { id: '4', name: 'chery', isCheked: false },
-  { id: '5', name: 'pork', isCheked: true },
+  // { id: '1', name: 'bread', isCheked: true },
 ];
 
 const refs = {
-  list: document.querySelector('ol'),
+  list: document.querySelector('.list'),
   form: document.querySelector('.form'),
 };
 
@@ -19,7 +19,7 @@ updateLocaleStorage();
 renderList();
 
 refs.list.addEventListener('click', onListItemClick);
-refs.form.addEventListener('submit', onAddBtnClick);
+refs.form.addEventListener('submit', onSubmitForm);
 
 //=================== render list ======================================
 function renderList() {
@@ -64,7 +64,7 @@ function onListItemClick(e) {
   renderList();
 }
 
-function onAddBtnClick(e) {
+function onSubmitForm(e) {
   e.preventDefault();
   const inputRef = document.querySelector('[name="text"]');
   if (inputRef.value) {
