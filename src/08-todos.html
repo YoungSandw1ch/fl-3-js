@@ -80,6 +80,15 @@
       font-size: 12px;
       color: rgb(171, 97, 0);
     }
+
+    .loader {
+      text-align: center;
+      display: none;
+    }
+
+    .show {
+      display: block;
+    }
   </style>
 </head>
 
@@ -96,6 +105,8 @@
       </label>
       <button type="submit">Добавить</button>
     </form>
+
+    <p class="loader">Loading...</p>
 
     <ol class="list"></ol>
   </div>

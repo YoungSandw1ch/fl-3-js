@@ -12,26 +12,25 @@ let items = [
 const refs = {
   list: document.querySelector('.list'),
   form: document.querySelector('.form'),
+  loader: document.querySelector('.loader'),
 };
 
-getItemsFromLS();
-updateLocaleStorage();
-renderList();
+loadAndRender();
 
 refs.list.addEventListener('click', onListItemClick);
 refs.form.addEventListener('submit', onSubmitForm);
 
-//=================== render list ======================================
-function renderList() {
-  const itemsMarkup = items.map(createItem).join('');
+//=========================================================
+function renderTodos() {
+  const itemsMarkup = items.map(createItemMarkup).join('');
 
   refs.list.innerHTML = '';
   refs.list.insertAdjacentHTML('afterbegin', itemsMarkup);
 }
 
-function createItem({ name, isCheked, id }) {
-  const item = `
-  <li class='item ${isCheked ? 'item--changeBg' : ''}' id='${id}'>
+function createItemMarkup({ name, isCheked }) {
+  return `
+  <li class='item ${isCheked ? 'item--changeBg' : ''}'>
     <label class='label'>
       <input type="checkbox" ${isCheked ? 'checked' : ''}>
       <span class='list__text ${isCheked ? 'done' : ''}'>${name}</span>
@@ -39,9 +38,19 @@ function createItem({ name, isCheked, id }) {
     <button class='close'>x</button>
   </li>
   `;
-  return item;
 }
 
+function loadAndRender() {
+  showLoader();
+
+  loadData().then(renderTodos).finally(hideLoader);
+}
+
+function loadData() {
+  return fetchTodos().then(data => {
+    items = data;
+  });
+}
 //================== handlers =========================================
 function onListItemClick(e) {
   if (e.target === e.currentTarget) return;
@@ -61,30 +70,36 @@ function onListItemClick(e) {
   }
 
   updateLocaleStorage();
-  renderList();
+  renderTodos();
 }
 
 function onSubmitForm(e) {
   e.preventDefault();
-  const inputRef = document.querySelector('[name="text"]');
-  if (inputRef.value) {
-    const item = {
-      id: Date.now().toString(),
-      name: inputRef.value,
-      isCheked: false,
-    };
 
-    items.push(item);
-    refs.form.reset();
+  const inputValue = refs.form.elements.text.value;
+  if (!inputValue) return;
 
-    renderList();
-    updateLocaleStorage();
-  }
+  const item = {
+    name: inputValue,
+    isCheked: false,
+  };
+
+  showLoader();
+  createTodo(item)
+    .then(data => {
+      items.push(data);
+    })
+    .then(renderTodos)
+    .then(resetForm)
+    .finally(hideLoader);
 }
-//==================== toogle / delete =================================
+//================================================
+
 function deleteItem(id) {
   items = items.filter(el => el.id !== id);
 }
+
+function saveData() {}
 
 function toogleItem(id) {
   items.map(el => {
@@ -93,53 +108,31 @@ function toogleItem(id) {
     }
   });
 }
+
+function resetForm() {
+  refs.form.reset();
+}
+//====================loader======================
+function showLoader() {
+  refs.loader.classList.add('show');
+}
+
+function hideLoader() {
+  refs.loader.classList.remove('show');
+}
+
 //====================locale storage=====================================
-function updateLocaleStorage() {
-  localStorage.setItem('noteData', JSON.stringify(items));
-}
-
-function getItemsFromLS() {
-  const itemsData = localStorage.getItem('noteData');
-  if (!itemsData) return;
-
-  try {
-    items = JSON.parse(itemsData);
-  } catch (error) {
-    console.log(`ОШИБКА parse ${error.message}`);
-  }
-}
-
-//=====old function, trash==============================================
-
-// function onItemSelect(e) {
-//   const listItem = e.target.closest('li');
-//   const span = e.target.nextElementSibling;
-
-//   items.map(el => {
-//     if (el.id === listItem.id) {
-//       el.isCheked = !el.isCheked;
-//       span.classList.toggle('done');
-//       listItem.classList.toggle('item--changeBg');
-//     }
-//   });
-
-//   updateLocaleStorage();
+// function updateLocaleStorage() {
+//   localStorage.setItem('noteData', JSON.stringify(items));
 // }
 
-// function onCloseBtn(e) {
-//   //если таргет именно кнопка (можна через класс getAttribute)
-//   if (e.target.nodeName === 'BUTTON') {
-//     const listItem = e.target.closest('li');
-//     //удалить этот елемент li
-//     listItem.remove();
+// function getItemsFromLS() {
+//   const itemsData = localStorage.getItem('noteData');
+//   if (!itemsData) return;
 
-//     //удалить обьект продукта из массива
-//     items.map((el, i, a) => {
-//       if (el.id === listItem.id) {
-//         a.splice(i, 1);
-//       }
-//     });
+//   try {
+//     items = JSON.parse(itemsData);
+//   } catch (error) {
+//     console.log(`ОШИБКА parse ${error.message}`);
 //   }
-
-//   updateLocaleStorage();
 // }
