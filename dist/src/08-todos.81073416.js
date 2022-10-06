@@ -542,7 +542,37 @@ const refs = {
 loadAndRender();
 refs.list.addEventListener("click", onListItemClick);
 refs.form.addEventListener("submit", onSubmitForm);
-//=========================================================
+//================== handlers ====================
+function onListItemClick(e) {
+    if (e.target === e.currentTarget) return;
+    const listItem = e.target.closest("li");
+    const id = listItem.id;
+    if (e.target.nodeName === "BUTTON") {
+        showLoader();
+        (0, _08ApiTodosJs.deleteTodo)(id).then(deleteItem(id)).then(renderTodos).finally(hideLoader);
+    }
+    if (e.target.nodeName === "INPUT") {
+        const data = toogleItem(id);
+        (0, _08ApiTodosJs.updateTodo)(id, data);
+        const text = e.target.nextElementSibling;
+        text.classList.toggle("done");
+        listItem.classList.toggle("item--changeBg");
+    }
+}
+function onSubmitForm(e) {
+    e.preventDefault();
+    const inputValue = refs.form.elements.text.value;
+    if (!inputValue) return;
+    const item = {
+        name: inputValue,
+        isCheked: false
+    };
+    showLoader();
+    (0, _08ApiTodosJs.createTodo)(item).then((data)=>{
+        items.push(data);
+    }).then(renderTodos).then(resetForm).finally(hideLoader);
+}
+//===================load and render===============
 function renderTodos() {
     const itemsMarkup = items.map(createItemMarkup).join("");
     refs.list.innerHTML = "";
@@ -568,48 +598,19 @@ function loadData() {
         items = data;
     });
 }
-//================== handlers =========================================
-function onListItemClick(e) {
-    if (e.target === e.currentTarget) return;
-    const listItem = e.target.closest("li");
-    const id = listItem.id;
-    if (e.target.nodeName === "BUTTON") {
-        showLoader();
-        (0, _08ApiTodosJs.deleteTodo)(id).then(deleteItem(id)).then(renderTodos).finally(hideLoader);
-    }
-    if (e.target.nodeName === "LABEL" || e.target.nodeName === "INPUT") {
-        (0, _08ApiTodosJs.updateTodo)(id).then(toogleItem(id));
-        const text = e.target.nextElementSibling;
-        text.classList.toggle("done");
-        listItem.classList.toggle("item--changeBg");
-    }
-// renderTodos();
-}
-function onSubmitForm(e) {
-    e.preventDefault();
-    const inputValue = refs.form.elements.text.value;
-    if (!inputValue) return;
-    const item = {
-        name: inputValue,
-        isCheked: false
-    };
-    showLoader();
-    (0, _08ApiTodosJs.createTodo)(item).then((data)=>{
-        items.push(data);
-    }).then(renderTodos).then(resetForm).finally(hideLoader);
-}
-//================================================
+//==================work with items===============
 function deleteItem(id) {
     items = items.filter((el)=>el.id !== id);
 }
-function saveData() {}
 function toogleItem(id) {
+    const toggledItemStatus = {};
     items.map((el)=>{
-        if (el.id === id) el.isCheked = !el.isCheked;
+        if (el.id === id) {
+            el.isCheked = !el.isCheked;
+            toggledItemStatus.isCheked = el.isCheked;
+        }
     });
-}
-function resetForm() {
-    refs.form.reset();
+    return toggledItemStatus;
 }
 //====================loader======================
 function showLoader() {
@@ -617,19 +618,11 @@ function showLoader() {
 }
 function hideLoader() {
     refs.loader.classList.remove("show");
-} //====================locale storage=====================================
- // function updateLocaleStorage() {
- //   localStorage.setItem('noteData', JSON.stringify(items));
- // }
- // function getItemsFromLS() {
- //   const itemsData = localStorage.getItem('noteData');
- //   if (!itemsData) return;
- //   try {
- //     items = JSON.parse(itemsData);
- //   } catch (error) {
- //     console.log(`ОШИБКА parse ${error.message}`);
- //   }
- // }
+}
+//====================common funk================
+function resetForm() {
+    refs.form.reset();
+}
 
 },{"./08-api-todos.js":"12e13"}],"12e13":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -656,9 +649,13 @@ function deleteTodo(id) {
         method: "DELETE"
     });
 }
-function updateTodo(id) {
+function updateTodo(id, data) {
     return fetch(`${URL}${id}`, {
-        method: "PUT"
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
     });
 }
 

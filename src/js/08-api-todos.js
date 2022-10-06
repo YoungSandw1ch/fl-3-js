@@ -20,8 +20,12 @@ export function deleteTodo(id) {
   });
 }
 
-export function updateTodo(id) {
+export function updateTodo(id, data) {
   return fetch(`${URL}${id}`, {
     method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
   });
 }
