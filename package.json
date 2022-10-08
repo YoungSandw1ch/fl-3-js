@@ -4,7 +4,8 @@
   "homepage": "https://YoungSandw1ch.github.io/fl-3-js",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /fl-3-js/"
+    "build": "parcel build src/*.html --public-url /fl-3-js/",
+    "postbuild": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -17,17 +18,18 @@
   },
   "dependencies": {
     "bootstrap.native": "^4.2.0",
+    "gh-pages": "^4.0.0",
     "modern-normalize": "^1.1.0",
     "notiflix": "^3.2.5",
     "simplelightbox": "^2.10.3"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",
-    "parcel": "^2.7.0",
-    "parcel-reporter-clean-dist": "^1.0.4",
-    "posthtml-include": "^1.7.4",
     "lodash.throttle": "^4.1.1",
-    "parcel-plugin-handlebars-precompile": "^1.0.2"
+    "parcel": "^2.7.0",
+    "parcel-plugin-handlebars-precompile": "^1.0.2",
+    "parcel-reporter-clean-dist": "^1.0.4",
+    "posthtml-include": "^1.7.4"
   },
   "browserslist": "> 0.5%, last 2 versions, not dead"
 }
