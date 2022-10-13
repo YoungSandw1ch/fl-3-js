@@ -577,16 +577,144 @@
 // console.log(womensIndex);
 // console.log(womens);
 //=========================================================
+// Change this number to fetch different post
+// const postId = '';
+
+// fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
+//   .then(response => response.json())
+//   .then(post => console.log(post))
+//   .catch(error => console.log(error));
+//=========================================================
+
+// const postToAdd = {
+//   author: 'Mango',
+//   body: 'CRUD is awesome',
+// };
+
+// const options = {
+//   method: 'POST',
+//   body: JSON.stringify(postToAdd),
+//   headers: {
+//     'Content-Type': 'application/json; charset=UTF-8',
+//   },
+// };
+
+// fetch('https://jsonplaceholder.typicode.com/posts', options)
+//   .then(response => response.json())
+//   .then(post => console.log(post))
+//   .catch(error => console.log(error));
 
 //=========================================================
+// Change value of id property to update different post
+// const postToUpdate = {
+//   id: 1,
+//   body: 'CRUD is really awesome',
+// };
+
+// const options = {
+//   method: 'PATCH',
+//   body: JSON.stringify(postToUpdate),
+//   headers: {
+//     'Content-Type': 'application/json; charset=UTF-8',
+//   },
+// };
+
+// fetch(`https://jsonplaceholder.typicode.com/posts/${postToUpdate.id}`, options)
+//   .then(response => response.json())
+//   .then(post => console.log(post))
+//   .catch(error => console.log('ERROR' + error));
 //=========================================================
+// const postIdToDelete = 1;
+
+// fetch(`https://jsonplaceholder.typicode.com/posts/${postIdToDelete}`, {
+//   method: 'DELETE',
+// })
+//   .then(() => console.log('Post deleted'))
+//   .catch(error => console.log('Error:', error));
 //=========================================================
+// const BASE_URL = 'https://pixabay.com/api/';
+// const KEY = '25718154-32288cdf6837b8e29b2d2c309';
+// const COUNTRIE_NAME = 'ukraine';
+// const CAPITAL = 'kiev';
+
+// fetch(`${BASE_URL}?key=${KEY}&q=${COUNTRIE_NAME}+${CAPITAL}&image_type=photo`)
+//   .then(response => response.json())
+//   .then(data => console.log(data));
 //=========================================================
+// const fetchFriends = () => {
+//   return fetch('my-api.com/me')
+//     .then(token => {
+//       return fetch(`my-api.com/profile?token=${token}`);
+//     })
+//     .then(user => {
+//       console.log(user);
+//       console.log(user.id);
+//       return fetch(`my-api.com/users/${user.id}/friends`);
+//     });
+// };
+
+// fetchFriends()
+//   .then(friends => console.log(friends))
+//   .catch(error => console.error(error));
 //=========================================================
+// const fetchUsers = async () => {
+//   const response = await fetch('https://jsonplaceholder.typicode.com/users');
+//   const users = await response.json();
+//   return users;
+// };
+
+// fetchUsers().then(users => console.log(users));
 //=========================================================
+// const fetchUsers = async () => {
+//   const response = await fetch('https://jsonplaceholder.typicode.com/users');
+//   const users = await response.json();
+//   return users;
+// };
+
+// const doStuff = async () => {
+//   try {
+//     const users = await fetchUsers();
+//     console.log(users);
+//   } catch (error) {
+//     console.log(error.message);
+//   }
+// };
+
+// doStuff();
 //=========================================================
+// const fetchUsers = async () => {
+//   const baseUrl = 'https://jsonplaceholder.typicode.com';
+//   const firstResponse = await fetch(`${baseUrl}/users/1`);
+//   const secondResponse = await fetch(`${baseUrl}/users/2`);
+//   const thirdResponse = await fetch(`${baseUrl}/users/3`);
+
+//   const firstUser = await firstResponse.json();
+//   const secondUser = await secondResponse.json();
+//   const thirdUser = await thirdResponse.json();
+
+//   console.log(firstUser, secondUser, thirdUser);
+// };
+
+// fetchUsers();
 //=========================================================
-//=========================================================
+// const fetchUsers = async () => {
+//   const baseUrl = 'https://jsonplaceholder.typicode.com';
+//   const userIds = [1, 2, 3];
+
+//   // 1. Создаём массив промисов
+//   const arrayOfPromises = userIds.map(async userId => {
+//     const response = await fetch(`${baseUrl}/users/${userId}`);
+//     return response.json();
+//   });
+
+//   console.log(arrayOfPromises);
+
+//   // 2. Запускаем все промисы параллельно и ждем их завершения
+//   const users = await Promise.all(arrayOfPromises);
+//   console.log(users);
+// };
+
+// fetchUsers();
 //=========================================================
 //=========================================================
 //=========================================================
