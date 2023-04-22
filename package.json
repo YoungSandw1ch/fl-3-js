@@ -21,6 +21,7 @@
     "gh-pages": "^4.0.0",
     "modern-normalize": "^1.1.0",
     "notiflix": "^3.2.5",
+    "react-router-dom": "^6.10.0",
     "simplelightbox": "^2.10.3"
   },
   "devDependencies": {
